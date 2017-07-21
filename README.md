@@ -27,8 +27,11 @@ podfile add
 pod install
 
 3.xcode add 
-RN dir 
-change main.mm
+/ios/Classes/RN 
+/ios/Classes/main.mm
+/ios/Classes/UnityAppController.h
+/ios/Classes/UnityAppController.m
+
 
 4.run
 npm start 
