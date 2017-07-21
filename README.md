@@ -34,6 +34,7 @@ pod install
 
 
 4.run
+change /ios/Classes/AppDelegate.m Ip to your machine' Ip
 npm start 
 npm run ios
 
