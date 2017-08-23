@@ -11,7 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import <React/RCTLog.h>
 
 
 @implementation AppDelegate
@@ -22,7 +22,7 @@
 
   //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
-  jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.159:8081/index.ios.bundle?platform=ios&dev=true"];
+  jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"RNUnityStarter"
@@ -40,6 +40,8 @@
     
     //self.window = _unityAppController.window;
   [self.window makeKeyAndVisible];
+    RCTLog(@"Start RN APP");
+   
   return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{

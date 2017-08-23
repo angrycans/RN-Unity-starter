@@ -1,0 +1,72 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="LuaManager" preserve="all"/>
+<type fullname="main" preserve="all"/>
+<type fullname="Helloworld" preserve="all"/>
+<type fullname="LuaBehaviour" preserve="all"/>
+<type fullname="InvokeLua" preserve="all"/>
+<type fullname="XLuaTest.NoGc" preserve="all"/>
+<type fullname="Coroutine_Runner" preserve="all"/>
+<type fullname="CoroutineTest" preserve="all"/>
+<type fullname="AsyncTest" preserve="all"/>
+<type fullname="MessageBox" preserve="all"/>
+<type fullname="HotfixTest" preserve="all"/>
+<type fullname="HotfixTest2" preserve="all"/>
+<type fullname="GenericMethodExample" preserve="all"/>
+<type fullname="SignatureLoaderTest" preserve="all"/>
+<type fullname="XLuaTest.RawObjectTest" preserve="all"/>
+<type fullname="ReImplementInLua" preserve="all"/>
+<type fullname="CSCallLua" preserve="all"/>
+<type fullname="ByFile" preserve="all"/>
+<type fullname="ByString" preserve="all"/>
+<type fullname="CustomLoader" preserve="all"/>
+<type fullname="LuaCallCs" preserve="all"/>
+</assembly>
+<assembly fullname="UnityEngine.UI">
+<type fullname="UnityEngine.EventSystems.EventSystem" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.EventTrigger" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.UIBehaviour" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.BaseInput" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.BaseInputModule" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.PointerInputModule" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.StandaloneInputModule" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.TouchInputModule" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.BaseRaycaster" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.Physics2DRaycaster" preserve="all"/>
+<type fullname="UnityEngine.EventSystems.PhysicsRaycaster" preserve="all"/>
+<type fullname="UnityEngine.UI.Button" preserve="all"/>
+<type fullname="UnityEngine.UI.Dropdown" preserve="all"/>
+<type fullname="UnityEngine.UI.Dropdown/DropdownItem" preserve="all"/>
+<type fullname="UnityEngine.UI.Graphic" preserve="all"/>
+<type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all"/>
+<type fullname="UnityEngine.UI.Image" preserve="all"/>
+<type fullname="UnityEngine.UI.InputField" preserve="all"/>
+<type fullname="UnityEngine.UI.Mask" preserve="all"/>
+<type fullname="UnityEngine.UI.MaskableGraphic" preserve="all"/>
+<type fullname="UnityEngine.UI.RawImage" preserve="all"/>
+<type fullname="UnityEngine.UI.RectMask2D" preserve="all"/>
+<type fullname="UnityEngine.UI.Scrollbar" preserve="all"/>
+<type fullname="UnityEngine.UI.ScrollRect" preserve="all"/>
+<type fullname="UnityEngine.UI.Selectable" preserve="all"/>
+<type fullname="UnityEngine.UI.Slider" preserve="all"/>
+<type fullname="UnityEngine.UI.Text" preserve="all"/>
+<type fullname="UnityEngine.UI.Toggle" preserve="all"/>
+<type fullname="UnityEngine.UI.ToggleGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.AspectRatioFitter" preserve="all"/>
+<type fullname="UnityEngine.UI.CanvasScaler" preserve="all"/>
+<type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all"/>
+<type fullname="UnityEngine.UI.GridLayoutGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.HorizontalOrVerticalLayoutGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.LayoutElement" preserve="all"/>
+<type fullname="UnityEngine.UI.LayoutGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all"/>
+<type fullname="UnityEngine.UI.BaseMeshEffect" preserve="all"/>
+<type fullname="UnityEngine.UI.Outline" preserve="all"/>
+<type fullname="UnityEngine.UI.PositionAsUV1" preserve="all"/>
+<type fullname="UnityEngine.UI.Shadow" preserve="all"/>
+</assembly>
+<assembly fullname="UnityEngine.Analytics">
+<type fullname="UnityEngine.Analytics.AnalyticsTracker" preserve="all"/>
+</assembly>
+</linker>

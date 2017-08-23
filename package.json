@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"ios":"react-native run-ios --device 'Acans iphone6s'",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "react-native run-ios --device 'Acans iphone6s'",
+    "log": "react-native log-ios",
     "test": "jest"
   },
   "dependencies": {

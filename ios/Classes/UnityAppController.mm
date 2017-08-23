@@ -13,10 +13,6 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-#import <UIKit/UIKit.h>
-#import <React/RCTBundleURLProvider.h>
-#import <React/RCTRootView.h>
-
 #include <mach/mach_time.h>
 
 // MSAA_DEFAULT_SAMPLE_COUNT was moved to iPhone_GlesSupport.h
@@ -35,6 +31,10 @@
 #include "Unity/EAGLContextHelper.h"
 #include "Unity/GlesHelper.h"
 #include "PluginBase/AppDelegateListener.h"
+
+#import <React/RCTRootView.h>
+#import <React/RCTLog.h>
+
 
 // Set this to 1 to force single threaded rendering
 #define UNITY_FORCE_DIRECT_RENDERING 0
@@ -86,7 +86,7 @@ bool    _supportsMSAA           = false;
 @synthesize renderDelegate          = _renderDelegate;
 @synthesize quitHandler             = _quitHandler;
 
-#if !UNITY_TVOS
+#if !PLATFORM_TVOS
 @synthesize interfaceOrientation    = _curOrientation;
 #endif
 
@@ -117,25 +117,6 @@ bool    _supportsMSAA           = false;
 - (void)shouldAttachRenderDelegate  {}
 - (void)preStartUnity               {}
 
-
-- (void)startUnity:(UIApplication*)application
-{
-    NSAssert(_unityAppReady == NO, @"[UnityAppController startUnity:] called after Unity has been initialized");
-
-    UnityInitApplicationGraphics(UNITY_FORCE_DIRECT_RENDERING);
-
-    // we make sure that first level gets correct display list and orientation
-    [[DisplayManager Instance] updateDisplayListInUnity];
-
-    UnityLoadApplication();
-    Profiler_InitProfiler();
-
-    [self showGameUI];
-    [self createDisplayLink];
-
-    UnitySetPlayerFocus(1);
-}
-
 - (void)startRN:(UIApplication*)application
 {
     //[self startUnity:[UIApplication sharedApplication]];
@@ -153,7 +134,7 @@ bool    _supportsMSAA           = false;
 
 #else
     // Run on device with code coming from dev server on PC (change the IP to your PCs IP)
-    jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.223:8081/index.ios.bundle?platform=ios&dev=true"];
+    jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"];
 #endif
 #else
     // For production load from pre-bundled file on disk. To re-generate the static bundle, run
@@ -174,6 +155,24 @@ bool    _supportsMSAA           = false;
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     
+    RCTLog(@"Start RN APP");
+}
+- (void)startUnity:(UIApplication*)application
+{
+    NSAssert(_unityAppReady == NO, @"[UnityAppController startUnity:] called after Unity has been initialized");
+
+    UnityInitApplicationGraphics(UNITY_FORCE_DIRECT_RENDERING);
+
+    // we make sure that first level gets correct display list and orientation
+    [[DisplayManager Instance] updateDisplayListInUnity];
+
+    UnityLoadApplication();
+    Profiler_InitProfiler();
+
+    [self showGameUI];
+    [self createDisplayLink];
+
+    UnitySetPlayerFocus(1);
 }
 
 extern "C" void UnityDestroyDisplayLink()
@@ -190,7 +189,7 @@ extern "C" void UnityRequestQuit()
         exit(0);
 }
 
-#if !UNITY_TVOS
+#if !PLATFORM_TVOS
 - (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window
 {
     // UIInterfaceOrientationMaskAll
@@ -206,7 +205,7 @@ extern "C" void UnityRequestQuit()
 
 #endif
 
-#if !UNITY_TVOS
+#if !PLATFORM_TVOS
 - (void)application:(UIApplication*)application didReceiveLocalNotification:(UILocalNotification*)notification
 {
     AppController_SendNotificationWithArg(kUnityDidReceiveLocalNotification, notification);
@@ -228,7 +227,7 @@ extern "C" void UnityRequestQuit()
     UnitySendDeviceToken(deviceToken);
 }
 
-#if !UNITY_TVOS
+#if !PLATFORM_TVOS
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 {
     AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
@@ -269,8 +268,6 @@ extern "C" void UnityRequestQuit()
 
 - (BOOL)application:(UIApplication*)application willFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openUnity:) name:@"openUnity" object:nil];
-
     return YES;
 }
 
@@ -279,7 +276,7 @@ extern "C" void UnityRequestQuit()
     ::printf("-> applicationDidFinishLaunching()\n");
 
     // send notfications
-#if !UNITY_TVOS
+#if !PLATFORM_TVOS
     if (UILocalNotification* notification = [launchOptions objectForKey: UIApplicationLaunchOptionsLocalNotificationKey])
         UnitySendLocalNotification(notification);
 
@@ -344,7 +341,6 @@ extern "C" void UnityRequestQuit()
     {
         _startUnityScheduled = true;
         [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-       // [self performSelector: @selector(startRN:) withObject: application afterDelay: 0];
     }
 
     _didResignActive = false;
@@ -426,10 +422,6 @@ extern "C" void UnityRequestQuit()
     SensorsCleanup();
 }
 
--(void) openUnity:(NSNotification *)notification{
-    NSLog(@"receive notification");
-    [self startUnity:[UIApplication sharedApplication]];
-}
 @end
 
 
@@ -494,4 +486,3 @@ void UnityInitTrampoline()
     if (::ftell(stdout) < 0)
         UnitySetLogEntryHandler(LogToNSLogHandler);
 }
-

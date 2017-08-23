@@ -35,8 +35,6 @@ int main(int argc, char* argv[])
         std::signal(SIGPIPE, SIG_IGN);
 
         UIApplicationMain(argc, argv, nil, [NSString stringWithUTF8String: AppControllerClassName]);
-        //UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-
     }
 
     return 0;

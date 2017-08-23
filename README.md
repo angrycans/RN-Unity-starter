@@ -30,7 +30,9 @@ pod install
 /ios/Classes/RN 
 /ios/Classes/main.mm
 /ios/Classes/UnityAppController.h
-/ios/Classes/UnityAppController.m
+/ios/Classes/UnityAppController.mm
+
+xcode open Unity-iPhone.xcworkspace
 
 
 4.run
