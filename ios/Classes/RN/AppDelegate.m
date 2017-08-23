@@ -13,21 +13,56 @@
 #import <React/RCTRootView.h>
 #import <React/RCTLog.h>
 
+#import "RNMEvaluator.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
+    RCTBridge* bridge;
   //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
-  jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"];
+//
+//  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+//                                                      moduleName:@"RNUnityStarter"
+//                                               initialProperties:nil
+//                                                   launchOptions:launchOptions];
+    
+#ifdef DEBUG
+    NSLog(@"build version debug");
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"RNUnityStarter"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
+#if TARGET_IPHONE_SIMULATOR
+    // Run from locally running dev server
+    //jsCodeLocation = [NSURL URLWithString:@"http://loaclhost:8081/index.ios.bundle?platform=ios&dev=true"];
+    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://loaclhost:8081/index.ios.bundle?platform=ios&dev=true"]
+                                   moduleProvider:nil
+                                    launchOptions:nil];
+    
+#else
+    // Run on device with code coming from dev server on PC (change the IP to your PCs IP)
+    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"]
+                                              moduleProvider:nil
+                                               launchOptions:nil];
+#endif
+    
+    
+#else
+    // For production load from pre-bundled file on disk. To re-generate the static bundle, run
+    //
+    // $ curl http://localhost:8081/index.ios.bundle -o main.jsbundle
+    NSLog(@"build version release");
+    jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
+                                   moduleProvider:nil
+                                    launchOptions:nil];
+#endif
+    
+    
+   
+    RCTRootView* rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"RNUnityStarter" initialProperties:nil];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -40,8 +75,17 @@
     
     //self.window = _unityAppController.window;
   [self.window makeKeyAndVisible];
-    RCTLog(@"Start RN APP");
-   
+    NSLog(@"test callSyncFunction");
+
+    [RNMEvaluator callSyncFunction:bridge
+                              name:@"console.log"
+                              args:@[@2,@2]
+                                cb:^(NSString *error, id returnValue) {
+                                    if (error)
+                                        NSLog(@"Error occured: %@", error);
+                                    else
+                                        NSLog(@"Function returned: %@", returnValue);
+                                }];
   return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{
