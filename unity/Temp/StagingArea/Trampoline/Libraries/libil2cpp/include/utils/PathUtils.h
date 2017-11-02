@@ -1,5 +1,6 @@
 #pragma once
 
+#include "il2cpp-config.h"
 #include <string>
 #include "StringView.h"
 

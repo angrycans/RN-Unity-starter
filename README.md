@@ -13,17 +13,20 @@ build to ios Dir
 http://facebook.github.io/react-native/releases/next/docs/integration-with-existing-apps.html
 pod init
 podfile add 
-   pod 'React', :path => '../node_modules/react-native', :subspecs => [
+ pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
     'RCTNetwork',
     'BatchedBridge',
-    'RCTAnimation',
     'RCTImage',
     'RCTWebSocket', # needed for debugging
     # Add any other subspecs you want to use in your project
   ]
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+
 pod install
 
 3.xcode add 
@@ -32,12 +35,20 @@ pod install
 /ios/Classes/UnityAppController.h
 /ios/Classes/UnityAppController.mm
 
+Preprocessor Macros  add
+DEBUG=1
+
 xcode open Unity-iPhone.xcworkspace
 
+4.cp src index.ios.js to root dir
 
-4.run
+
+5.run
 change /ios/Classes/AppDelegate.m Ip to your machine' Ip
 npm start 
+xcode run ios device
+
+or use ios-deploy 
 npm run ios
 
 ```

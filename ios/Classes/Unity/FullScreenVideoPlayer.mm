@@ -219,6 +219,7 @@ static Class _AVPlayerViewControllerClass = nil;
 - (void)setAllowsPictureInPicturePlayback:(BOOL)allowsPictureInPicturePlayback
 {
     id<AVKitVideoPlayback_PictureInPicture> avPlayer = (id)videoViewController;
+    // iOS 9.0
     if ([avPlayer respondsToSelector: @selector(setAllowsPictureInPicturePlayback:)])
         avPlayer.allowsPictureInPicturePlayback = allowsPictureInPicturePlayback;
 }

@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/XLua/Examples/03_UIEvent/UI.unity
-  isLoaded: 1
-  isActive: 1

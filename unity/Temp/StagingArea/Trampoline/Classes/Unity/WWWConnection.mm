@@ -18,7 +18,7 @@ static NSOperationQueue *fileOperationQueue;
 @property (readwrite, retain, nonatomic) NSString*             password;
 @property (readwrite, retain, nonatomic) NSMutableURLRequest*  request;
 @property (readwrite, retain, nonatomic) NSURLConnection*      connection;
-@property (strong, nonatomic)            NSCondition*          condition;
+@property (strong)                       NSCondition*          condition;
 @property (nonatomic)                    BOOL                  manuallyHandleRedirect;
 @end
 

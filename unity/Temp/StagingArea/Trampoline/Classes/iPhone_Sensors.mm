@@ -17,9 +17,11 @@
 typedef void (^ControllerPausedHandler)(GCController *controller);
 static NSArray* QueryControllerCollection();
 
+#if PLATFORM_TVOS
 static bool gTVRemoteTouchesEnabled = true;
 static bool gTVRemoteAllowRotationInitialValue = false;
 static bool gTVRemoteReportsAbsoluteDpadValuesInitialValue = false;
+#endif
 
 static bool gCompensateSensors = true;
 bool gEnableGyroscope = false;
@@ -369,13 +371,13 @@ extern "C" void UnityInitJoysticks()
         if (bundle)
         {
             [bundle load];
-            Class retClass = [bundle classNamed: @"GCController"];
-            if (retClass && [retClass respondsToSelector: @selector(controllers)])
-                gGameControllerClass = retClass;
+            gGameControllerClass = [bundle classNamed: @"GCController"];
 
             //Apply settings that could have been set by user scripts before controller initialization
+        #if PLATFORM_TVOS
             UnitySetAppleTVRemoteAllowRotation(gTVRemoteAllowRotationInitialValue);
             UnitySetAppleTVRemoteReportAbsoluteDpadValues(gTVRemoteReportsAbsoluteDpadValuesInitialValue);
+        #endif
         }
 
         for (int i = 0; i < BTN_COUNT; i++)
@@ -943,6 +945,7 @@ bool LocationService::IsHeadingAvailable()
 @end
 
 #if PLATFORM_TVOS
+
 GCMicroGamepad* QueryMicroController()
 {
     NSArray* list = QueryControllerCollection();
@@ -954,8 +957,6 @@ GCMicroGamepad* QueryMicroController()
 
     return nil;
 }
-
-#endif
 
 extern "C" int UnityGetAppleTVRemoteTouchesEnabled()
 {
@@ -969,60 +970,43 @@ extern "C" void UnitySetAppleTVRemoteTouchesEnabled(int val)
 
 extern "C" int UnityGetAppleTVRemoteAllowExitToMenu()
 {
-#if PLATFORM_TVOS
     return ((GCEventViewController*)UnityGetGLViewController()).controllerUserInteractionEnabled;
-#else
-    return false;
-#endif
 }
 
 extern "C" void UnitySetAppleTVRemoteAllowExitToMenu(int val)
 {
-#if PLATFORM_TVOS
     ((GCEventViewController*)UnityGetGLViewController()).controllerUserInteractionEnabled = val;
-#endif
 }
 
 extern "C" int UnityGetAppleTVRemoteAllowRotation()
 {
-#if PLATFORM_TVOS
     GCMicroGamepad* controller = QueryMicroController();
     if (controller != nil)
         return controller.allowsRotation;
     else
         return false;
-#else
-    return false;
-#endif
 }
 
-extern "C" void     UnitySetAppleTVRemoteAllowRotation(int val)
+extern "C" void UnitySetAppleTVRemoteAllowRotation(int val)
 {
-#if PLATFORM_TVOS
     GCMicroGamepad* controller = QueryMicroController();
     if (controller != nil)
         controller.allowsRotation = val;
     else
         gTVRemoteAllowRotationInitialValue = val;
-#endif
 }
 
-extern "C" int      UnityGetAppleTVRemoteReportAbsoluteDpadValues()
+extern "C" int UnityGetAppleTVRemoteReportAbsoluteDpadValues()
 {
-#if PLATFORM_TVOS
     GCMicroGamepad* controller = QueryMicroController();
     if (controller != nil)
         return controller.reportsAbsoluteDpadValues;
     else
         return false;
-#else
-    return false;
-#endif
 }
 
-extern "C" void     UnitySetAppleTVRemoteReportAbsoluteDpadValues(int val)
+extern "C" void UnitySetAppleTVRemoteReportAbsoluteDpadValues(int val)
 {
-#if PLATFORM_TVOS
     NSArray* list = QueryControllerCollection();
     for (GCController* controller in list)
     {
@@ -1031,8 +1015,9 @@ extern "C" void     UnitySetAppleTVRemoteReportAbsoluteDpadValues(int val)
         else
             gTVRemoteReportsAbsoluteDpadValuesInitialValue = val;
     }
-#endif
 }
+
+#endif
 
 #if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
 static void FakeRemoteStateSetButton(UIPressType type, bool state)

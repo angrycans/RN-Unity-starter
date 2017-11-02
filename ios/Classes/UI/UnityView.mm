@@ -2,20 +2,17 @@
 #include "UnityAppController.h"
 #include "UnityAppController+Rendering.h"
 #include "OrientationSupport.h"
-#include "Unity/GlesHelper.h"
 #include "Unity/DisplayManager.h"
 #include "Unity/UnityMetalSupport.h"
 
 extern bool _renderingInited;
 extern bool _unityAppReady;
 extern bool _skipPresent;
+extern bool _supportsMSAA;
 
 @implementation UnityView
 {
-    CGSize              _surfaceSize;
-    ScreenOrientation   _curOrientation;
-
-    BOOL                _recreateView;
+    CGSize _surfaceSize;
 }
 
 @synthesize contentOrientation  = _curOrientation;
@@ -25,7 +22,7 @@ extern bool _skipPresent;
     _surfaceSize = size;
 
     CGSize renderSize = CGSizeMake(size.width * self.contentScaleFactor, size.height * self.contentScaleFactor);
-    _curOrientation = (ScreenOrientation)UnityReportResizeView(renderSize.width, renderSize.height, self.contentOrientation);
+    _curOrientation = (ScreenOrientation)UnityReportResizeView(renderSize.width, renderSize.height, _curOrientation);
 
 #if UNITY_CAN_USE_METAL
     if (UnitySelectedRenderingAPI() == apiMetal)
@@ -80,7 +77,7 @@ extern bool _skipPresent;
 - (void)layoutSubviews
 {
     if (_surfaceSize.width != self.bounds.size.width || _surfaceSize.height != self.bounds.size.height)
-        _recreateView = YES;
+        _shouldRecreateView = YES;
     [self onUpdateSurfaceSize: self.bounds.size];
 
     for (UIView* subView in self.subviews)
@@ -92,56 +89,28 @@ extern bool _skipPresent;
     [super layoutSubviews];
 }
 
-#if !PLATFORM_TVOS
-- (void)willRotateToOrientation:(UIInterfaceOrientation)toOrientation fromOrientation:(UIInterfaceOrientation)fromOrientation;
-{
-    // to support the case of interface and unity content orientation being different
-    // we will cheat a bit:
-    // we will calculate transform between interface orientations and apply it to unity view orientation
-    // you can still tweak unity view as you see fit in AppController, but this is what you want in 99% of cases
-
-    ScreenOrientation to    = ConvertToUnityScreenOrientation(toOrientation);
-    ScreenOrientation from  = ConvertToUnityScreenOrientation(fromOrientation);
-
-    if (fromOrientation == UIInterfaceOrientationUnknown)
-        _curOrientation = to;
-    else
-        _curOrientation = OrientationAfterTransform(_curOrientation, TransformBetweenOrientations(from, to));
-}
-
-- (void)didRotate
-{
-    if (_recreateView)
-    {
-        // we are not inside repaint so we need to draw second time ourselves
-        [self recreateGLESSurface];
-        if (_unityAppReady && !UnityIsPaused())
-            UnityRepaint();
-    }
-}
-
-#endif
-
-- (void)recreateGLESSurfaceIfNeeded
+- (void)recreateRenderingSurfaceIfNeeded
 {
     unsigned requestedW, requestedH;    UnityGetRenderingResolution(&requestedW, &requestedH);
     int requestedMSAA = UnityGetDesiredMSAASampleCount(MSAA_DEFAULT_SAMPLE_COUNT);
     int requestedSRGB = UnityGetSRGBRequested();
+    int requestedWideColor = UnityGetWideColorRequested();
 
     UnityDisplaySurfaceBase* surf = GetMainDisplaySurface();
 
-    if (_recreateView == YES
+    if (_shouldRecreateView == YES
         ||  surf->targetW != requestedW || surf->targetH != requestedH
         ||  surf->disableDepthAndStencil != UnityDisableDepthAndStencilBuffers()
         ||  (_supportsMSAA && surf->msaaSamples != requestedMSAA)
         ||  surf->srgb != requestedSRGB
+        ||  surf->wideColor != requestedWideColor
         )
     {
-        [self recreateGLESSurface];
+        [self recreateRenderingSurface];
     }
 }
 
-- (void)recreateGLESSurface
+- (void)recreateRenderingSurface
 {
     if (_renderingInited)
     {
@@ -153,6 +122,8 @@ extern bool _skipPresent;
             UnityGetDesiredMSAASampleCount(MSAA_DEFAULT_SAMPLE_COUNT),
             (int)requestedW, (int)requestedH,
             UnityGetSRGBRequested(),
+            UnityGetWideColorRequested(),
+            UnityMetalFramebufferOnly(),
             UnityDisableDepthAndStencilBuffers(), 0
         };
 
@@ -176,68 +147,14 @@ extern bool _skipPresent;
         }
     }
 
-    _recreateView = NO;
+    _shouldRecreateView = NO;
 }
 
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
-{
-#if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
-    ReportSimulatedRemoteTouchesBegan(self, touches);
-#endif
-#if PLATFORM_TVOS
-    if (UnityGetAppleTVRemoteTouchesEnabled())
-#endif
-    UnitySendTouchesBegin(touches, event);
-}
+@end
 
-- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
-{
-#if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
-    ReportSimulatedRemoteTouchesEnded(self, touches);
-#endif
-#if PLATFORM_TVOS
-    if (UnityGetAppleTVRemoteTouchesEnabled())
-#endif
-    UnitySendTouchesEnded(touches, event);
-}
-
-- (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event
-{
-#if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
-    ReportSimulatedRemoteTouchesEnded(self, touches);
-#endif
-#if PLATFORM_TVOS
-    if (UnityGetAppleTVRemoteTouchesEnabled())
-#endif
-    UnitySendTouchesCancelled(touches, event);
-}
-
-- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
-{
-#if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
-    ReportSimulatedRemoteTouchesMoved(self, touches);
-#endif
-#if PLATFORM_TVOS
-    if (UnityGetAppleTVRemoteTouchesEnabled())
-#endif
-    UnitySendTouchesMoved(touches, event);
-}
-
-#if UNITY_TVOS_SIMULATOR_FAKE_REMOTE
-- (void)pressesBegan:(NSSet<UIPress*>*)presses withEvent:(UIEvent*)event
-{
-    for (UIPress *press in presses)
-        ReportSimulatedRemoteButtonPress(press.type);
-}
-
-- (void)pressesEnded:(NSSet<UIPress*>*)presses withEvent:(UIEvent*)event
-{
-    for (UIPress *press in presses)
-        ReportSimulatedRemoteButtonRelease(press.type);
-}
-
-#endif
-
+@implementation UnityView (Deprecated)
+- (void)recreateGLESSurfaceIfNeeded { [self recreateRenderingSurfaceIfNeeded]; }
+- (void)recreateGLESSurface         { [self recreateRenderingSurface]; }
 @end
 
 

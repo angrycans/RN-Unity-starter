@@ -17,6 +17,7 @@ typedef enum UnityGfxRenderer
     kUnityGfxRendererOpenGLCore        = 17, // OpenGL core
     kUnityGfxRendererD3D12             = 18, // Direct3D 12
     kUnityGfxRendererVulkan                = 21, // Vulkan
+    kUnityGfxRendererNvn               = 22, // Nintendo Switch NVN API
 } UnityGfxRenderer;
 
 typedef enum UnityGfxDeviceEventType

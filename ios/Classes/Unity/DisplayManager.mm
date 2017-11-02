@@ -116,9 +116,11 @@ extern bool _ios80orNewer;
         if (api == apiMetal)
         {
             UnityDisplaySurfaceMTL* surf = new UnityDisplaySurfaceMTL();
+            surf->writeCount    = 0;
             surf->layer         = (CAMetalLayer*)_view.layer;
             surf->device        = UnityGetMetalDevice();
             surf->commandQueue  = [surf->device newCommandQueue];
+            surf->drawableCommandQueue = [surf->device newCommandQueue];
             _surface = surf;
         }
         else
@@ -169,10 +171,14 @@ extern bool _ios80orNewer;
 
     _surface->msaaSamples = _supportsMSAA ? params.msaaSampleCount : 0;
     _surface->srgb = params.srgb;
+    _surface->wideColor = params.wideColor;
     _surface->useCVTextureCache = params.useCVTextureCache;
 
     if (UnitySelectedRenderingAPI() == apiMetal)
+    {
         recreateSystemSurface = recreateSystemSurface || self.surfaceMTL->systemColorRB == 0;
+        self.surfaceMTL->framebufferOnly = params.metalFramebufferOnly;
+    }
     else
         recreateSystemSurface = recreateSystemSurface || self.surfaceGLES->systemFB == 0;
 
@@ -184,6 +190,8 @@ extern bool _ios80orNewer;
         CreateSharedDepthbuffer(_surface);
     if (recreateSystemSurface || recreateRenderingSurface)
         CreateUnityRenderBuffers(_surface);
+
+    UnityInvalidateDisplayDataCache((__bridge void*)_screen);
 }
 
 - (void)dealloc
@@ -224,6 +232,9 @@ extern bool _ios80orNewer;
         RenderingSurfaceParams params =
         {
             _surface->msaaSamples, (int)_requestedRenderingSize.width, (int)_requestedRenderingSize.height,
+            _surface->srgb,
+            _surface->wideColor,
+            false,
             _surface->disableDepthAndStencil, self.surface->cvTextureCache != 0
         };
         [self recreateSurface: params];
@@ -305,7 +316,26 @@ extern bool _ios80orNewer;
 
 - (void)updateDisplayListInUnity
 {
-    UnityUpdateDisplayList();
+    // [UIScreen screens] might be out of sync to what is indicated to the
+    // application via UIScreenDidConnectNotification and UIScreenDidDisconnectNotification
+    // notifications. For example, on disconnection [UIScreen screens] might still
+    // have the screen that the display manager no longer knows about.
+
+    const unsigned MAX_DISPLAYS_SUPPORTED = 8; // sync this to the value on Unity side
+    void* screens[MAX_DISPLAYS_SUPPORTED];
+    unsigned screenCount = 0;
+
+    UIScreen* mainScreen = [UIScreen mainScreen];
+    screens[screenCount++] = (__bridge void*)mainScreen;
+
+    for (UIScreen* screen in _displayConnection)
+    {
+        if (screen == mainScreen)
+            continue;
+        screens[screenCount++] = (__bridge void*)screen;
+    }
+
+    UnityUpdateDisplayList(screens, screenCount);
 }
 
 - (void)enumerateDisplaysWithBlock:(void (^)(DisplayConnection* conn))block
@@ -402,7 +432,7 @@ static void EnsureDisplayIsInited(DisplayConnection* conn)
 
     if (needRecreate)
     {
-        RenderingSurfaceParams params = {0, -1, -1, UnityDisableDepthAndStencilBuffers(), false};
+        RenderingSurfaceParams params = {0, -1, -1, 0, 0, 0, UnityDisableDepthAndStencilBuffers(), false};
         [conn recreateSurface: params];
         {
             DisplayConnection* main = [DisplayManager Instance].mainDisplay;
@@ -433,6 +463,9 @@ extern "C" bool UnityDisplayManager_DisplayActive(void* nativeDisplay)
 
 extern "C" void UnityDisplayManager_DisplaySystemResolution(void* nativeDisplay, int* w, int* h)
 {
+    if (nativeDisplay == NULL)
+        return;
+
     DisplayConnection* conn = [DisplayManager Instance][(__bridge UIScreen*)nativeDisplay];
     EnsureDisplayIsInited(conn);
 
@@ -442,6 +475,9 @@ extern "C" void UnityDisplayManager_DisplaySystemResolution(void* nativeDisplay,
 
 extern "C" void UnityDisplayManager_DisplayRenderingResolution(void* nativeDisplay, int* w, int* h)
 {
+    if (nativeDisplay == NULL)
+        return;
+
     DisplayConnection* conn = [DisplayManager Instance][(__bridge UIScreen*)nativeDisplay];
     EnsureDisplayIsInited(conn);
 
@@ -451,6 +487,9 @@ extern "C" void UnityDisplayManager_DisplayRenderingResolution(void* nativeDispl
 
 extern "C" void UnityDisplayManager_DisplayRenderingBuffers(void* nativeDisplay, void** colorBuffer, void** depthBuffer)
 {
+    if (nativeDisplay == NULL)
+        return;
+
     DisplayConnection* conn = [DisplayManager Instance][(__bridge UIScreen*)nativeDisplay];
     EnsureDisplayIsInited(conn);
 
@@ -462,6 +501,9 @@ extern "C" void UnityDisplayManager_DisplayRenderingBuffers(void* nativeDisplay,
 
 extern "C" void UnityDisplayManager_SetRenderingResolution(void* nativeDisplay, int w, int h)
 {
+    if (nativeDisplay == NULL)
+        return;
+
     UIScreen*           screen  = (__bridge UIScreen*)nativeDisplay;
     DisplayConnection*  conn    = [DisplayManager Instance][screen];
     EnsureDisplayIsInited(conn);
@@ -474,6 +516,9 @@ extern "C" void UnityDisplayManager_SetRenderingResolution(void* nativeDisplay, 
 
 extern "C" void UnityDisplayManager_ShouldShowWindowOnDisplay(void* nativeDisplay, bool show)
 {
+    if (nativeDisplay == NULL)
+        return;
+
     UIScreen*           screen  = (__bridge UIScreen*)nativeDisplay;
     DisplayConnection*  conn    = [DisplayManager Instance][screen];
     EnsureDisplayIsInited(conn);
@@ -503,6 +548,7 @@ extern "C" float UnityScreenScaleFactor(UIScreen* screen)
     // we should query nativeScale if available to get the true device resolution
     // this way we avoid unnecessarily large frame buffers and downscaling.
     // e.g. iPhone 6+ pretends to be a x3 device, while its physical screen is x2.6 something.
+    // iOS 8.0+, tvOS 9.0+
     if ([screen respondsToSelector: @selector(nativeScale)])
     {
         // On AppleTV screen.nativeScale returns NaN when device is in sleep mode and starting

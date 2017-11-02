@@ -2,6 +2,7 @@
 
 #import "UnityReplayKit.h"
 #import "UnityAppController.h"
+#import "UI/UnityViewControllerBase.h"
 #import "UnityInterface.h"
 #import <UIKit/UIKit.h>
 
@@ -45,6 +46,51 @@ static UnityReplayKit* _replayKit = nil;
 
 @end
 
+// why do we care about orientation handling:
+// ReplayKit will disable top-window autorotation
+// as users keep asking to do autorotation during broadcast/record we create fake empty window with fake view controller
+// this window will have autorotation disabled instead of unity one
+// but this is not the end of the story: what fake view controller does is also important
+// now it is hard to speculate what *actually* happens but with setup like fake view controller takes over control over "supported orientations"
+// meaning that if we dont do anything suddenly all orientations become enabled.
+// to avoid that we create this monstrosity that pokes unity for orientation.
+
+#if PLATFORM_IOS
+@interface UnityReplayKitViewController : UnityViewControllerBase {}
+- (NSUInteger)supportedInterfaceOrientations;
+@end
+@implementation UnityReplayKitViewController
+- (NSUInteger)supportedInterfaceOrientations
+{
+    NSUInteger ret = 0;
+    if (UnityShouldAutorotate())
+    {
+        if (UnityIsOrientationEnabled(portrait))
+            ret |= (1 << UIInterfaceOrientationPortrait);
+        if (UnityIsOrientationEnabled(portraitUpsideDown))
+            ret |= (1 << UIInterfaceOrientationPortraitUpsideDown);
+        if (UnityIsOrientationEnabled(landscapeLeft))
+            ret |= (1 << UIInterfaceOrientationLandscapeRight);
+        if (UnityIsOrientationEnabled(landscapeRight))
+            ret |= (1 << UIInterfaceOrientationLandscapeLeft);
+    }
+    else
+    {
+        switch (UnityRequestedScreenOrientation())
+        {
+            case portrait:              ret = (1 << UIInterfaceOrientationPortrait);            break;
+            case portraitUpsideDown:    ret = (1 << UIInterfaceOrientationPortraitUpsideDown);  break;
+            case landscapeLeft:         ret = (1 << UIInterfaceOrientationLandscapeRight);      break;
+            case landscapeRight:        ret = (1 << UIInterfaceOrientationLandscapeLeft);       break;
+        }
+    }
+    return ret;
+}
+
+@end
+#else
+    #define UnityReplayKitViewController UnityViewControllerBase
+#endif
 
 @implementation UnityReplayKit
 {
@@ -52,9 +98,16 @@ static UnityReplayKit* _replayKit = nil;
     void* broadcastStartStatusCallback;
     UIView* currentCameraPreviewView;
 
-    // if that looks hacky it is because it is: broadcasting will disable top-window autorotation
-    // to still allow autorotation (users keep asking that) we create fake empty window so that its autorotation is disabled
     UIWindow* overlayWindow;
+}
+
+- (void)createOverlayWindow
+{
+    UIWindow* wnd = self->overlayWindow = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
+    wnd.hidden = wnd.userInteractionEnabled = NO;
+    wnd.backgroundColor = nil;
+
+    wnd.rootViewController = [[UnityReplayKitViewController alloc] init];
 }
 
 + (UnityReplayKit*)sharedInstance
@@ -93,6 +146,10 @@ static UnityReplayKit* _replayKit = nil;
             _lastError = [error description];
             success = NO;
         }
+        else
+        {
+            [self createOverlayWindow];
+        }
     }];
 
     return success;
@@ -120,6 +177,7 @@ static UnityReplayKit* _replayKit = nil;
 
     __block BOOL success = YES;
     [recorder stopRecordingWithHandler:^(RPPreviewViewController* previewViewController, NSError* error) {
+        self->overlayWindow = nil;
         if (error != nil)
         {
             _lastError = [error description];
@@ -142,6 +200,7 @@ static UnityReplayKit* _replayKit = nil;
     {
         _lastError = [error description];
     }
+    self->overlayWindow = nil;
     _previewController = previewViewController;
 }
 
@@ -290,13 +349,7 @@ static UnityReplayKit* _replayKit = nil;
             return;
         }
 
-        UIViewController* rootViewController = [[UIViewController alloc] init];
-        self->overlayWindow = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
-        self->overlayWindow.hidden = NO;
-        self->overlayWindow.userInteractionEnabled = NO;
-        self->overlayWindow.backgroundColor = nil;
-        self->overlayWindow.rootViewController = rootViewController;
-
+        [self createOverlayWindow];
         UnityPause(1);
         vc.delegate = self;
         broadcastStartStatusCallback = callback;
@@ -319,12 +372,9 @@ static UnityReplayKit* _replayKit = nil;
 
 - (void)stopBroadcasting
 {
-    if (broadcastController == nil)
-    {
-        return;
-    }
+    self->overlayWindow = nil;
 
-    if (!broadcastController.broadcasting)
+    if (broadcastController == nil || !broadcastController.broadcasting)
     {
         broadcastController = nil;
         return;
@@ -334,9 +384,7 @@ static UnityReplayKit* _replayKit = nil;
     {
         broadcastController = nil;
         if (error == nil)
-        {
             return;
-        }
         _lastError = [error description];
     }];
 }

@@ -32,21 +32,16 @@
 #include "Unity/GlesHelper.h"
 #include "PluginBase/AppDelegateListener.h"
 
-// Set this to 1 to force single threaded rendering
-#define UNITY_FORCE_DIRECT_RENDERING 0
 
-bool    _ios42orNewer           = false;
-bool    _ios43orNewer           = false;
-bool    _ios50orNewer           = false;
-bool    _ios60orNewer           = false;
-bool    _ios70orNewer           = false;
-bool    _ios80orNewer           = false;
-bool    _ios81orNewer           = false;
-bool    _ios82orNewer           = false;
-bool    _ios83orNewer           = false;
-bool    _ios90orNewer           = false;
-bool    _ios91orNewer           = false;
-bool    _ios100orNewer          = false;
+// Standard Gesture Recognizers enabled on all iOS apps absorb touches close to the top and bottom of the screen.
+// This sometimes causes an ~1 second delay before the touch is handled when clicking very close to the edge.
+// You should enable this if you want to avoid that delay. Enabling it should not have any effect on default iOS gestures.
+#define DISABLE_TOUCH_DELAYS 1
+
+// we keep old bools around to support "old" code that might have used them
+bool _ios42orNewer = false, _ios43orNewer = false, _ios50orNewer = false, _ios60orNewer = false, _ios70orNewer = false;
+bool _ios80orNewer = false, _ios81orNewer = false, _ios82orNewer = false, _ios83orNewer = false, _ios90orNewer = false, _ios91orNewer = false;
+bool _ios100orNewer = false, _ios101orNewer = false, _ios102orNewer = false, _ios103orNewer = false;
 
 // was unity rendering already inited: we should not touch rendering while this is false
 bool    _renderingInited        = false;
@@ -70,7 +65,6 @@ static bool _startUnityScheduled    = false;
 
 bool    _supportsMSAA           = false;
 
-
 @implementation UnityAppController
 
 @synthesize unityView               = _unityView;
@@ -82,7 +76,7 @@ bool    _supportsMSAA           = false;
 @synthesize renderDelegate          = _renderDelegate;
 @synthesize quitHandler             = _quitHandler;
 
-#if !PLATFORM_TVOS
+#if UNITY_SUPPORT_ROTATION
 @synthesize interfaceOrientation    = _curOrientation;
 #endif
 
@@ -118,7 +112,7 @@ bool    _supportsMSAA           = false;
 {
     NSAssert(_unityAppReady == NO, @"[UnityAppController startUnity:] called after Unity has been initialized");
 
-    UnityInitApplicationGraphics(UNITY_FORCE_DIRECT_RENDERING);
+    UnityInitApplicationGraphics();
 
     // we make sure that first level gets correct display list and orientation
     [[DisplayManager Instance] updateDisplayListInUnity];
@@ -259,6 +253,13 @@ extern "C" void UnityRequestQuit()
     // if you wont use keyboard you may comment it out at save some memory
     [KeyboardDelegate Initialize];
 
+#if !PLATFORM_TVOS && DISABLE_TOUCH_DELAYS
+    for (UIGestureRecognizer *g in _window.gestureRecognizers)
+    {
+        g.delaysTouchesBegan = false;
+    }
+#endif
+
     return YES;
 }
 
@@ -275,7 +276,7 @@ extern "C" void UnityRequestQuit()
     if (_unityAppReady)
     {
         // if we were showing video before going to background - the view size may be changed while we are in background
-        [GetAppController().unityView recreateGLESSurfaceIfNeeded];
+        [GetAppController().unityView recreateRenderingSurfaceIfNeeded];
     }
 }
 
@@ -437,6 +438,9 @@ void UnityInitTrampoline()
     _ios90orNewer = [version compare: @"9.0" options: NSNumericSearch] != NSOrderedAscending;
     _ios91orNewer = [version compare: @"9.1" options: NSNumericSearch] != NSOrderedAscending;
     _ios100orNewer = [version compare: @"10.0" options: NSNumericSearch] != NSOrderedAscending;
+    _ios101orNewer = [version compare: @"10.1" options: NSNumericSearch] != NSOrderedAscending;
+    _ios102orNewer = [version compare: @"10.2" options: NSNumericSearch] != NSOrderedAscending;
+    _ios103orNewer = [version compare: @"10.3" options: NSNumericSearch] != NSOrderedAscending;
 
     // Try writing to console and if it fails switch to NSLog logging
     ::fprintf(stdout, "\n");

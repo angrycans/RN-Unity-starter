@@ -50,8 +50,7 @@ static const unsigned       kToolBarHeight = 40;
     BOOL            _multiline;
     BOOL            _inputHidden;
     BOOL            _active;
-    BOOL            _done;
-    BOOL            _canceled;
+    KeyboardStatus          _status;
 
     // not pretty but seems like easiest way to keep "we are rotating" status
     BOOL            _rotating;
@@ -59,26 +58,34 @@ static const unsigned       kToolBarHeight = 40;
 
 @synthesize area;
 @synthesize active      = _active;
-@synthesize done        = _done;
-@synthesize canceled    = _canceled;
+@synthesize status      = _status;
 @synthesize text;
 @synthesize selection;
 
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textFieldObj
 {
-    [self hide];
+    [self textInputDone: nil];
     return YES;
 }
 
 - (void)textInputDone:(id)sender
 {
+    if (_status == Visible)
+        _status = Done;
     [self hide];
 }
 
 - (void)textInputCancel:(id)sender
 {
-    _canceled = true;
+    _status = Canceled;
+    [self hide];
+}
+
+- (void)textInputLostFocus
+{
+    if (_status == Visible)
+        _status = LostFocus;
     [self hide];
 }
 
@@ -272,8 +279,7 @@ struct CreateToolbarResult
 
     [self shouldHideInput: _shouldHideInput];
 
-    _done       = NO;
-    _canceled   = NO;
+    _status     = Visible;
     _active     = YES;
 }
 
@@ -318,7 +324,6 @@ struct CreateToolbarResult
 - (void)hide
 {
     [self hideUI];
-    _done = YES;
 }
 
 - (void)updateInputHidden
@@ -401,7 +406,7 @@ struct CreateToolbarResult
 
 - (NSString*)getText
 {
-    if (_canceled)
+    if (_status == Canceled)
         return initialText;
     else
     {
@@ -549,7 +554,7 @@ extern "C" void UnityKeyboard_Hide()
     if (!_keyboard)
         return;
 
-    [[KeyboardDelegate Instance] hide];
+    [[KeyboardDelegate Instance] textInputLostFocus];
 }
 
 extern "C" void UnityKeyboard_SetText(const char* text)
@@ -569,12 +574,18 @@ extern "C" int UnityKeyboard_IsActive()
 
 extern "C" int UnityKeyboard_IsDone()
 {
-    return (_keyboard && _keyboard.done) ? 1 : 0;
+    // Preserving old behaviour where done was always set to true when the keyboard was not visible.
+    return (_keyboard && _keyboard.status != Visible) ? 1 : 0;
 }
 
 extern "C" int UnityKeyboard_WasCanceled()
 {
-    return (_keyboard && _keyboard.canceled) ? 1 : 0;
+    return (_keyboard && _keyboard.status == Canceled) ? 1 : 0;
+}
+
+extern "C" int UnityKeyboard_Status()
+{
+    return _keyboard ? _keyboard.status : Canceled;
 }
 
 extern "C" void UnityKeyboard_SetInputHidden(int hidden)

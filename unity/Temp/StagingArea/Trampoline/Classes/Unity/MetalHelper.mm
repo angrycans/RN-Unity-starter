@@ -42,34 +42,87 @@ static bool SupportsTextureSampleCountMTL(MTLDeviceRef device, NSUInteger sample
     return (sampleCount == 1 || sampleCount == 4);
 }
 
+static MTLPixelFormat GetColorFormatForSurface(const UnityDisplaySurfaceMTL* surface)
+{
+    MTLPixelFormat colorFormat = surface->srgb ? MTLPixelFormatBGRA8Unorm_sRGB : MTLPixelFormatBGRA8Unorm;
+#if PLATFORM_IOS && __IPHONE_10_0
+    if (surface->wideColor)
+        colorFormat = surface->srgb ? MTLPixelFormatBGR10_XR_sRGB : MTLPixelFormatBGR10_XR;
+#elif PLATFORM_OSX && __MAC_10_12
+    if (surface->wideColor)
+        colorFormat = MTLPixelFormatRGBA16Float;
+#endif
+    return colorFormat;
+}
+
 extern "C" void CreateSystemRenderingSurfaceMTL(UnityDisplaySurfaceMTL* surface)
 {
     DestroySystemRenderingSurfaceMTL(surface);
 
-    MTLPixelFormat colorFormat = surface->srgb ? MTLPixelFormatBGRA8Unorm_sRGB : MTLPixelFormatBGRA8Unorm;
-
+    MTLPixelFormat colorFormat = GetColorFormatForSurface(surface);
     surface->layer.presentsWithTransaction = NO;
     surface->layer.drawsAsynchronously = YES;
 
+#if PLATFORM_OSX
+    MetalUpdateDisplaySync();
+#endif
+
     CGFloat backgroundColorValues[] = {0, 0, 0, 1};
+#if (PLATFORM_IOS && __IPHONE_9_0) || PLATFORM_OSX
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
+#else
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+#endif
+#if (PLATFORM_IOS && __IPHONE_10_0) || (PLATFORM_OSX && __MAC_10_12)
+    if (surface->wideColor)
+        colorSpaceRef = CGColorSpaceCreateWithName(surface->srgb ? kCGColorSpaceExtendedLinearSRGB : kCGColorSpaceExtendedSRGB);
+#endif
+
     CGColorRef backgroundColorRef = CGColorCreate(colorSpaceRef, backgroundColorValues);
     surface->layer.backgroundColor = backgroundColorRef; // retained automatically
+#if PLATFORM_OSX && __MAC_10_12
+    surface->layer.colorspace = colorSpaceRef;
+#endif
     CGColorRelease(backgroundColorRef);
     CGColorSpaceRelease(colorSpaceRef);
 
     surface->layer.device = surface->device;
     surface->layer.pixelFormat = colorFormat;
-    surface->layer.framebufferOnly = NO;
+    surface->layer.framebufferOnly = (surface->framebufferOnly != 0);
     surface->colorFormat = colorFormat;
 
-    MTLTextureDescriptor* txDesc = [MTLTextureDescriptorClass texture2DDescriptorWithPixelFormat: colorFormat width: surface->targetW height: surface->targetH mipmapped: NO];
-    surface->drawableProxyRT = [surface->device newTextureWithDescriptor: txDesc];
+    MTLTextureDescriptor* txDesc = [MTLTextureDescriptorClass texture2DDescriptorWithPixelFormat: colorFormat width: surface->systemW height: surface->systemH mipmapped: NO];
+#if PLATFORM_OSX
+    txDesc.resourceOptions = MTLResourceCPUCacheModeDefaultCache | MTLResourceStorageModeManaged;
+#endif
+#if __IPHONE_9_0 || __TVOS_9_0 || __MAC_10_11
+    if (hasMTLTextureDescriptorUsage)
+        txDesc.usage = MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead;
+#endif
+
+    @synchronized(surface->layer)
+    {
+        OSAtomicCompareAndSwap32Barrier(surface->bufferChanged, 0, &surface->bufferChanged);
+
+        for (int i = 0; i < kUnityNumOffscreenSurfaces; i++)
+        {
+            OSAtomicCompareAndSwap32Barrier(surface->bufferCompleted[i], -1, &surface->bufferCompleted[i]);
+            // Allocating a proxy texture is cheap until it's being rendered to and the GPU driver does allocation
+            surface->drawableProxyRT[i] = [surface->device newTextureWithDescriptor: txDesc];
+        }
+
+#if PLATFORM_OSX
+        OSAtomicCompareAndSwap32Barrier(surface->writeCount, surface->writeCount + (kUnityNumOffscreenSurfaces - 1), &surface->writeCount);
+        OSAtomicCompareAndSwap32Barrier(surface->readCount, surface->writeCount - 1, &surface->readCount);
+#endif
+    }
 }
 
 extern "C" void CreateRenderingSurfaceMTL(UnityDisplaySurfaceMTL* surface)
 {
     DestroyRenderingSurfaceMTL(surface);
+
+    MTLPixelFormat colorFormat = GetColorFormatForSurface(surface);
 
     const int w = surface->targetW, h = surface->targetH;
 
@@ -92,7 +145,7 @@ extern "C" void CreateRenderingSurfaceMTL(UnityDisplaySurfaceMTL* surface)
             txDesc.width = w;
             txDesc.height = h;
             txDesc.depth = 1;
-            txDesc.pixelFormat = surface->srgb ? MTLPixelFormatBGRA8Unorm_sRGB : MTLPixelFormatBGRA8Unorm;
+            txDesc.pixelFormat = colorFormat;
             txDesc.arrayLength = 1;
             txDesc.mipmapLevelCount = 1;
 #if PLATFORM_OSX
@@ -100,7 +153,7 @@ extern "C" void CreateRenderingSurfaceMTL(UnityDisplaySurfaceMTL* surface)
 #endif
 #if __IPHONE_9_0 || __TVOS_9_0 || __MAC_10_11
             if (hasMTLTextureDescriptorUsage)
-                txDesc.usage = MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
+                txDesc.usage = MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead;
 #endif
 
             surface->targetColorRT = [surface->device newTextureWithDescriptor: txDesc];
@@ -115,7 +168,7 @@ extern "C" void CreateRenderingSurfaceMTL(UnityDisplaySurfaceMTL* surface)
         txDesc.width = w;
         txDesc.height = h;
         txDesc.depth = 1;
-        txDesc.pixelFormat = surface->srgb ? MTLPixelFormatBGRA8Unorm_sRGB : MTLPixelFormatBGRA8Unorm;
+        txDesc.pixelFormat = colorFormat;
         txDesc.arrayLength = 1;
         txDesc.mipmapLevelCount = 1;
         txDesc.sampleCount = surface->msaaSamples;
@@ -178,6 +231,10 @@ extern "C" void CreateSharedDepthbufferMTL(UnityDisplaySurfaceMTL* surface)
     surface->stencilRB = surface->depthRB;
 #else
     MTLTextureDescriptor* stencilTexDesc = [MTLTextureDescriptorClass texture2DDescriptorWithPixelFormat: MTLPixelFormatStencil8 width: surface->targetW height: surface->targetH mipmapped: NO];
+#if __IPHONE_9_0 || __TVOS_9_0 || __MAC_10_11
+    if (hasMTLTextureDescriptorUsage)
+        stencilTexDesc.usage = MTLTextureUsageRenderTarget;
+#endif
     if (surface->msaaSamples > 1)
     {
         stencilTexDesc.textureType = MTLTextureType2DMultisample;
@@ -266,7 +323,17 @@ extern "C" void StartFrameRenderingMTL(UnityDisplaySurfaceMTL* surface)
 {
     // we will acquire drawable lazily in AcquireDrawableMTL
     surface->drawable = nil;
-    surface->systemColorRB  = surface->drawableProxyRT;
+
+#if PLATFORM_OSX
+    // For non-Mac platforms, writeCount remains static
+    bool bufferChanged = (bool)surface->bufferChanged;
+    OSAtomicCompareAndSwap32Barrier(surface->bufferChanged, 0, &surface->bufferChanged);
+
+    if (bufferChanged && surface->writeCount <= surface->readCount)
+        OSAtomicAdd32Barrier(1, &surface->writeCount);
+    OSAtomicCompareAndSwap32Barrier(surface->bufferCompleted[surface->writeCount % kUnityNumOffscreenSurfaces], 0, &surface->bufferCompleted[surface->writeCount % kUnityNumOffscreenSurfaces]);
+#endif
+    surface->systemColorRB  = surface->drawableProxyRT[surface->writeCount % kUnityNumOffscreenSurfaces];
 
     // screen disconnect notification comes asynchronously
     // even better when preparing render we might still have [UIScreen screens].count == 2, but drawable would be nil already

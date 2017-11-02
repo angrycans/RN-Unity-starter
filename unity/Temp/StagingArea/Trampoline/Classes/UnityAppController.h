@@ -20,11 +20,13 @@
 
     DisplayConnection*  _mainDisplay;
 
-    // we will cache view controllers for fixed orientation
-    // auto-rotation view contoller goes to index=0
-    UIViewController*   _viewControllerForOrientation[5];
-#if !PLATFORM_TVOS
+    // we will cache view controllers used for fixed orientation (indexed by UIInterfaceOrientation).
+    // default view contoller goes to index 0
+#if UNITY_SUPPORT_ROTATION
+    UIViewController*       _viewControllerForOrientation[5];
     UIInterfaceOrientation  _curOrientation;
+#else
+    UIViewController*       _viewControllerForOrientation[1];
 #endif
 
     id<RenderPluginDelegate>    _renderDelegate;
@@ -54,7 +56,7 @@
 @property (readonly, copy, nonatomic) UIViewController*     rootViewController;
 @property (readonly, copy, nonatomic) DisplayConnection*    mainDisplay;
 
-#if !PLATFORM_TVOS
+#if UNITY_SUPPORT_ROTATION
 @property (readonly, nonatomic) UIInterfaceOrientation      interfaceOrientation;
 #endif
 

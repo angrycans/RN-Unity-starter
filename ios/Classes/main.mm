@@ -1,9 +1,9 @@
 #include "RegisterMonoModules.h"
 #include "RegisterFeatures.h"
-#include <mach/mach_time.h>
 #include <csignal>
 
 #include "AppDelegate.h"
+
 
 // Hack to work around iOS SDK 4.3 linker problem
 // we need at least one __TEXT, __const section entry in main application .o files
@@ -12,15 +12,17 @@ static const int constsection = 0;
 
 void UnityInitTrampoline();
 
-// WARNING: this MUST be c decl (NSString ctor will be called after +load, so we cant really change its value)
 const char* AppControllerClassName = "AppDelegate";
+
+
+// WARNING: this MUST be c decl (NSString ctor will be called after +load, so we cant really change its value)
+//const char* AppControllerClassName = "UnityAppController";
 
 int main(int argc, char* argv[])
 {
-    signed long long startTime = mach_absolute_time();
+    UnityInitStartupTime();
     @autoreleasepool
     {
-        UnitySetStartupTime(startTime);
         UnityInitTrampoline();
         UnityInitRuntime(argc, argv);
 

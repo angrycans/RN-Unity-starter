@@ -24,7 +24,7 @@
     RCTBridge* bridge;
   //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
-//  jsCodeLocation = [NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://172.19.3.17:8081/index.ios.bundle?platform=ios&dev=true"];
 //
 //  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 //                                                      moduleName:@"RNUnityStarter"
@@ -43,7 +43,7 @@
     
 #else
     // Run on device with code coming from dev server on PC (change the IP to your PCs IP)
-    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://172.19.8.58:8081/index.ios.bundle?platform=ios&dev=true"]
+    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://172.19.3.17:8081/index.ios.bundle?platform=ios&dev=true"]
                                               moduleProvider:nil
                                                launchOptions:nil];
 #endif

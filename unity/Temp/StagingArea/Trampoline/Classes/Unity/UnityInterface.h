@@ -35,10 +35,10 @@ extern "C" {
 
 // life cycle management
 
-void    UnitySetStartupTime(signed long long startTime);
+void    UnityInitStartupTime();
 void    UnityInitRuntime(int argc, char* argv[]);
 void    UnityInitApplicationNoGraphics(const char* appPathName);
-void    UnityInitApplicationGraphics(int forceDirectRendering);
+void    UnityInitApplicationGraphics();
 void    UnityCleanup();
 void    UnityLoadApplication();
 void    UnityPlayerLoop();                  // normal player loop
@@ -123,10 +123,12 @@ int     UnityDisableDepthAndStencilBuffers();
 int     UnityUseAnimatedAutorotation();
 int     UnityGetDesiredMSAASampleCount(int defaultSampleCount);
 int     UnityGetSRGBRequested();
+int     UnityGetWideColorRequested();
 int     UnityGetShowActivityIndicatorOnLoading();
 int     UnityGetAccelerometerFrequency();
 int     UnityGetTargetFPS();
 int     UnityGetAppBackgroundBehavior();
+int     UnityMetalFramebufferOnly();
 
 
 // push notifications
@@ -139,7 +141,8 @@ void    UnitySendRemoteNotificationError(NSError* error);
 
 // native events
 
-void    UnityUpdateDisplayList();
+void    UnityInvalidateDisplayDataCache(void* screen);
+void    UnityUpdateDisplayList(void** screens, int screenCount);
 
 
 // profiler
@@ -260,11 +263,14 @@ int             UnitySelectedRenderingAPI();
 NSBundle*           UnityGetMetalBundle();
 MTLDeviceRef        UnityGetMetalDevice();
 MTLCommandQueueRef  UnityGetMetalCommandQueue();
+MTLCommandQueueRef  UnityGetMetalDrawableCommandQueue();
 
 EAGLContext*        UnityGetDataContextEAGL();
 
 UnityRenderBufferHandle UnityBackbufferColor();
 UnityRenderBufferHandle UnityBackbufferDepth();
+
+int             UnityGetWideColorSupported();
 
 // UI/ActivityIndicator.mm
 void            UnityStartActivityIndicator();
@@ -280,6 +286,7 @@ NSString*       UnityKeyboard_GetText();
 int             UnityKeyboard_IsActive();
 int             UnityKeyboard_IsDone();
 int             UnityKeyboard_WasCanceled();
+int             UnityKeyboard_Status();
 void            UnityKeyboard_SetInputHidden(int hidden);
 int             UnityKeyboard_IsInputHidden();
 
