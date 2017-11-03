@@ -3370,6 +3370,10 @@ react-devtools-core@^2.5.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-eval@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-eval/-/react-native-eval-0.1.0.tgz#313f605c149d60fa562ba6a1e0cdb5b21a6b8f45"
+
 react-native@0.49.5:
   version "0.49.5"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.49.5.tgz#89f0fe93a8da4db2670c4bd0d81131a2ff617f27"

@@ -13,12 +13,16 @@ target 'Unity-iPhone' do
     'RCTNetwork',
     'BatchedBridge',
     'RCTImage',
+    'RCTAnimation',
     'RCTWebSocket', # needed for debugging
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
+  
+  #native call js
+  pod 'react-native-eval',:path => '../node_modules/react-native-eval'
+  
   target 'Unity-iPhone Tests' do
     inherit! :search_paths
     # Pods for testing

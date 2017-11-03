@@ -62,7 +62,7 @@
     
     
    
-    RCTRootView* rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"RNUnityStarter" initialProperties:nil];
+ RCTRootView* rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"RNUnityStarter" initialProperties:nil];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -75,18 +75,36 @@
     
     //self.window = _unityAppController.window;
   [self.window makeKeyAndVisible];
-    NSLog(@"test callSyncFunction");
+    
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.5);
+    dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+        NSLog(@"test callSyncFunction");
+        
+        [RNMEvaluator callSyncFunction:bridge
+                                  name:@"console.log"
+                                  args:@[@1,@2]
+                                    cb:^(NSString *error, id returnValue) {
+                                        if (error)
+                                            NSLog(@"Error occured: %@", error);
+                                        else
+                                            NSLog(@"Function returned: %@", returnValue);
+                                    }];
 
-    [RNMEvaluator callSyncFunction:bridge
-                              name:@"console.log"
-                              args:@[@2,@2]
-                                cb:^(NSString *error, id returnValue) {
-                                    if (error)
-                                        NSLog(@"Error occured: %@", error);
-                                    else
-                                        NSLog(@"Function returned: %@", returnValue);
-                                }];
-  return YES;
+
+        // do work in the UI thread here
+        [RNMEvaluator callAsyncFunction:bridge
+                                   name:@"(function(a,b,cb) { setTimeout(function() { cb(Math.pow(a,b)) },0) })"
+                                   args:@[@2,@2]
+                                     cb:^(NSString *error, id returnValue) {
+                                         if (error)
+                                             NSLog(@"Error occured: %@", error);
+                                         else
+                                             NSLog(@"Function returned: %@", returnValue);
+                                     }];
+
+    });
+
+     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application{
     [_unityAppController applicationWillResignActive:application];

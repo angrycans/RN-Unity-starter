@@ -13,12 +13,15 @@ import {
   Button,
   NativeModules
 } from 'react-native';
+require('react-native-eval')
+
+
 import UnityView from './src/unityview.js'
 
 var NavigateManager = NativeModules.NavigateBridge;
 
 const onButtonPress = () => {
-    NavigateManager.startUnity();
+  NavigateManager.startUnity();
 };
 
 export default class RNUnityStarter extends Component {
@@ -37,9 +40,9 @@ export default class RNUnityStarter extends Component {
         </Text>
 
         <Button onPress={onButtonPress}
-                        title="Press me!"
-                />
-                <UnityView style={{width:300, height:200}}/>
+          title="Press me!"
+        />
+        <UnityView style={{ width: 300, height: 200 }} />
       </View>
     );
   }

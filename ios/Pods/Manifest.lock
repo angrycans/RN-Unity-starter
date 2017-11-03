@@ -1,4 +1,8 @@
 PODS:
+  - React (0.49.5):
+    - React/Core (= 0.49.5)
+  - react-native-eval (0.1.0):
+    - React (> 0.8.0)
   - React/BatchedBridge (0.49.5):
     - React/Core
     - React/cxxreact_legacy
@@ -11,6 +15,8 @@ PODS:
     - React/RCTWebSocket
   - React/fishhook (0.49.5)
   - React/jschelpers_legacy (0.49.5)
+  - React/RCTAnimation (0.49.5):
+    - React/Core
   - React/RCTBlob (0.49.5):
     - React/Core
   - React/RCTImage (0.49.5):
@@ -27,9 +33,11 @@ PODS:
   - yoga (0.49.5.React)
 
 DEPENDENCIES:
+  - react-native-eval (from `../node_modules/react-native-eval`)
   - React/BatchedBridge (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
+  - React/RCTAnimation (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
@@ -39,13 +47,16 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   React:
     :path: ../node_modules/react-native
+  react-native-eval:
+    :path: ../node_modules/react-native-eval
   yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   React: 9d5a23842dcc75ffef540ee2d2ef0eee1904ee58
+  react-native-eval: 5c3f37df91a57bd982c2f483466b60694ba20b19
   yoga: 596e987aa8aac0165abb235d2977982f090476a0
 
-PODFILE CHECKSUM: 90519854a9392fffd29251d56cc77db46b89dee2
+PODFILE CHECKSUM: 9f70d4adbe53589b80acb95b3d77ea7ae562dc45
 
 COCOAPODS: 1.2.1
