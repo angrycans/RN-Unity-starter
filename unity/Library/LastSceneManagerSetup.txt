@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/XLua/Tutorial/LoadLuaScript/Loader/CustomLoader.unity
+- path: Assets/Scenes/t1.unity
   isLoaded: 1
   isActive: 1

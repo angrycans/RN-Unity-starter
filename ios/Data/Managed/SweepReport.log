@@ -2,17 +2,325 @@
 All Assemblies
 ---------------------------------------------------
 Summary:
-  Total Type Removals = 4222
-    Nested = 413
-    Interfaces = 217
-    Abstract Classes = 403
+  Total Type Removals = 4310
+    Nested = 418
+    Interfaces = 225
+    Abstract Classes = 406
     Generic Types = 290
     Generic Interfaces = 11
     Generic Abstract Classes = 26
     Attributes = 262
-  Total Field Removals = 5859
-  Total Method Removals = 18295
+  Total Field Removals = 5944
+  Total Method Removals = 18358
 ---------------------------------------------------
+---------------------------------------------------
+Assembly: ICSharpCode.SharpZipLib
+---------------------------------------------------
+Summary:
+  Total Type Removals = 89
+    Nested = 5
+    Interfaces = 8
+    Abstract Classes = 3
+    Generic Types = 0
+    Generic Interfaces = 0
+    Generic Abstract Classes = 0
+    Attributes = 0
+  Total Field Removals = 85
+  Total Method Removals = 97
+  References Removed = 0
+---------------------------------------------------
+    <PrivateImplementationDetails>{8E8FA28D-216A-43EC-8DCB-2258D1F7BF00}
+        $$method0x6000038-1
+        $$method0x6000152-1
+        $$method0x60004f8-1
+        $$method0x60004fa-1
+        $$method0x60004fc-1
+        $$method0x60004fc-2
+        $$method0x60004fc-3
+        $$method0x60004fc-4
+        $$method0x60004fc-5
+    <PrivateImplementationDetails>{8E8FA28D-216A-43EC-8DCB-2258D1F7BF00}/__StaticArrayInitTypeSize=10
+    <PrivateImplementationDetails>{8E8FA28D-216A-43EC-8DCB-2258D1F7BF00}/__StaticArrayInitTypeSize=2048
+    <PrivateImplementationDetails>{8E8FA28D-216A-43EC-8DCB-2258D1F7BF00}/__StaticArrayInitTypeSize=40
+    <PrivateImplementationDetails>{8E8FA28D-216A-43EC-8DCB-2258D1F7BF00}/__StaticArrayInitTypeSize=56
+    ICSharpCode.SharpZipLib.BZip2.BZip2
+    ICSharpCode.SharpZipLib.BZip2.BZip2Constants
+    ICSharpCode.SharpZipLib.BZip2.BZip2Exception
+    ICSharpCode.SharpZipLib.BZip2.BZip2InputStream
+    ICSharpCode.SharpZipLib.BZip2.BZip2OutputStream
+    ICSharpCode.SharpZipLib.Checksums.Adler32
+        BASE
+        Update(System.Byte[])
+        Update(System.Int32)
+    ICSharpCode.SharpZipLib.Checksums.Crc32
+        CrcSeed
+        set_Value(System.Int64)
+        Update(System.Byte[])
+        Update(System.Int32)
+    ICSharpCode.SharpZipLib.Checksums.IChecksum
+        get_Value()
+        Reset()
+        Update(System.Byte[])
+        Update(System.Byte[],System.Int32,System.Int32)
+        Update(System.Int32)
+    ICSharpCode.SharpZipLib.Checksums.StrangeCRC
+    ICSharpCode.SharpZipLib.Core.CompletedFileHandler
+    ICSharpCode.SharpZipLib.Core.DirectoryEventArgs
+    ICSharpCode.SharpZipLib.Core.DirectoryFailureHandler
+    ICSharpCode.SharpZipLib.Core.ExtendedPathFilter
+    ICSharpCode.SharpZipLib.Core.FileFailureHandler
+    ICSharpCode.SharpZipLib.Core.FileSystemScanner
+    ICSharpCode.SharpZipLib.Core.INameTransform
+    ICSharpCode.SharpZipLib.Core.IScanFilter
+    ICSharpCode.SharpZipLib.Core.NameAndSizeFilter
+    ICSharpCode.SharpZipLib.Core.NameFilter
+    ICSharpCode.SharpZipLib.Core.PathFilter
+    ICSharpCode.SharpZipLib.Core.ProcessDirectoryHandler
+    ICSharpCode.SharpZipLib.Core.ProcessFileHandler
+    ICSharpCode.SharpZipLib.Core.ProgressEventArgs
+    ICSharpCode.SharpZipLib.Core.ProgressHandler
+    ICSharpCode.SharpZipLib.Core.ScanEventArgs
+    ICSharpCode.SharpZipLib.Core.ScanFailureEventArgs
+    ICSharpCode.SharpZipLib.Core.StreamUtils
+    ICSharpCode.SharpZipLib.Core.WindowsPathUtils
+    ICSharpCode.SharpZipLib.Encryption.PkzipClassicDecryptCryptoTransform
+        get_CanReuseTransform()
+    ICSharpCode.SharpZipLib.Encryption.PkzipClassicEncryptCryptoTransform
+        get_CanReuseTransform()
+    ICSharpCode.SharpZipLib.Encryption.PkzipClassicManaged
+        get_LegalBlockSizes()
+    ICSharpCode.SharpZipLib.Encryption.ZipAESStream
+    ICSharpCode.SharpZipLib.Encryption.ZipAESTransform
+    ICSharpCode.SharpZipLib.GZip.GZipConstants
+    ICSharpCode.SharpZipLib.GZip.GZipException
+    ICSharpCode.SharpZipLib.GZip.GZipInputStream
+    ICSharpCode.SharpZipLib.GZip.GZipOutputStream
+    ICSharpCode.SharpZipLib.LZW.LzwConstants
+    ICSharpCode.SharpZipLib.LZW.LzwException
+    ICSharpCode.SharpZipLib.LZW.LzwInputStream
+    ICSharpCode.SharpZipLib.SharpZipBaseException
+        .ctor(System.String,System.Exception)
+    ICSharpCode.SharpZipLib.Tar.InvalidHeaderException
+    ICSharpCode.SharpZipLib.Tar.ProgressMessageHandler
+    ICSharpCode.SharpZipLib.Tar.TarArchive
+    ICSharpCode.SharpZipLib.Tar.TarBuffer
+    ICSharpCode.SharpZipLib.Tar.TarEntry
+    ICSharpCode.SharpZipLib.Tar.TarException
+    ICSharpCode.SharpZipLib.Tar.TarHeader
+    ICSharpCode.SharpZipLib.Tar.TarInputStream
+    ICSharpCode.SharpZipLib.Tar.TarOutputStream
+    ICSharpCode.SharpZipLib.Zip.BaseArchiveStorage
+    ICSharpCode.SharpZipLib.Zip.Compression.Deflater
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflaterConstants
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflaterEngine
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflaterHuffman
+        BITLEN_NUM
+        blTree
+        BUFSIZE
+        d_buf
+        DIST_NUM
+        distTree
+        EOF_SYMBOL
+        extra_bits
+        l_buf
+        last_lit
+        LITERAL_NUM
+        literalTree
+        pending
+        REP_11_138
+        REP_3_10
+        REP_3_6
+        .ctor(ICSharpCode.SharpZipLib.Zip.Compression.DeflaterPending)
+        CompressBlock()
+        Dcode(System.Int32)
+        FlushBlock(System.Byte[],System.Int32,System.Int32,System.Boolean)
+        FlushStoredBlock(System.Byte[],System.Int32,System.Int32,System.Boolean)
+        IsFull()
+        Lcode(System.Int32)
+        Reset()
+        SendAllTrees(System.Int32)
+        TallyDist(System.Int32,System.Int32)
+        TallyLit(System.Int32)
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflaterHuffman/Tree
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflaterPending
+    ICSharpCode.SharpZipLib.Zip.Compression.DeflateStrategy
+    ICSharpCode.SharpZipLib.Zip.Compression.Inflater
+        DECODE_BLOCKS
+        DECODE_CHKSUM
+        DECODE_DICT
+        DECODE_DYN_HEADER
+        DECODE_HEADER
+        DECODE_HUFFMAN
+        DECODE_HUFFMAN_DIST
+        DECODE_HUFFMAN_DISTBITS
+        DECODE_HUFFMAN_LENBITS
+        DECODE_STORED
+        DECODE_STORED_LEN1
+        DECODE_STORED_LEN2
+        FINISHED
+        .ctor()
+        get_Adler()
+        Inflate(System.Byte[])
+        SetDictionary(System.Byte[])
+        SetDictionary(System.Byte[],System.Int32,System.Int32)
+        SetInput(System.Byte[])
+    ICSharpCode.SharpZipLib.Zip.Compression.InflaterDynHeader
+        BLLENS
+        BLNUM
+        DNUM
+        LENS
+        LNUM
+        REPS
+    ICSharpCode.SharpZipLib.Zip.Compression.InflaterHuffmanTree
+        MAX_BITLEN
+    ICSharpCode.SharpZipLib.Zip.Compression.PendingBuffer
+    ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream
+    ICSharpCode.SharpZipLib.Zip.Compression.Streams.InflaterInputBuffer
+        .ctor(System.IO.Stream)
+        get_ClearText()
+        get_ClearTextLength()
+        get_RawData()
+    ICSharpCode.SharpZipLib.Zip.Compression.Streams.InflaterInputStream
+        .ctor(System.IO.Stream)
+        get_Available()
+        get_IsStreamOwner()
+        set_IsStreamOwner(System.Boolean)
+    ICSharpCode.SharpZipLib.Zip.Compression.Streams.OutputWindow
+        WindowMask
+        WindowSize
+        CopyDict(System.Byte[],System.Int32,System.Int32)
+    ICSharpCode.SharpZipLib.Zip.Compression.Streams.StreamManipulator
+        GetBits(System.Int32)
+    ICSharpCode.SharpZipLib.Zip.DescriptorData
+    ICSharpCode.SharpZipLib.Zip.DiskArchiveStorage
+    ICSharpCode.SharpZipLib.Zip.DynamicDiskDataSource
+    ICSharpCode.SharpZipLib.Zip.EncryptionAlgorithm
+    ICSharpCode.SharpZipLib.Zip.EntryPatchData
+    ICSharpCode.SharpZipLib.Zip.ExtendedUnixData
+    ICSharpCode.SharpZipLib.Zip.FastZip
+    ICSharpCode.SharpZipLib.Zip.FastZipEvents
+    ICSharpCode.SharpZipLib.Zip.FileUpdateMode
+    ICSharpCode.SharpZipLib.Zip.GeneralBitFlags
+    ICSharpCode.SharpZipLib.Zip.HostSystemID
+    ICSharpCode.SharpZipLib.Zip.IArchiveStorage
+    ICSharpCode.SharpZipLib.Zip.IDynamicDataSource
+    ICSharpCode.SharpZipLib.Zip.IEntryFactory
+    ICSharpCode.SharpZipLib.Zip.IStaticDataSource
+    ICSharpCode.SharpZipLib.Zip.ITaggedData
+    ICSharpCode.SharpZipLib.Zip.ITaggedDataFactory
+    ICSharpCode.SharpZipLib.Zip.KeysRequiredEventArgs
+    ICSharpCode.SharpZipLib.Zip.MemoryArchiveStorage
+    ICSharpCode.SharpZipLib.Zip.NTTaggedData
+    ICSharpCode.SharpZipLib.Zip.RawTaggedData
+    ICSharpCode.SharpZipLib.Zip.StaticDiskDataSource
+    ICSharpCode.SharpZipLib.Zip.TestOperation
+    ICSharpCode.SharpZipLib.Zip.TestStatus
+    ICSharpCode.SharpZipLib.Zip.TestStrategy
+    ICSharpCode.SharpZipLib.Zip.UseZip64
+    ICSharpCode.SharpZipLib.Zip.WindowsNameTransform
+    ICSharpCode.SharpZipLib.Zip.ZipConstants
+        ArchiveExtraDataSignature
+        CENDIGITALSIG
+        CENHDR
+        CENSIG
+        CENSIG64
+        CentralHeaderBaseSize
+        CentralHeaderDigitalSignature
+        CentralHeaderSignature
+        CRYPTO_HEADER_SIZE
+        CryptoHeaderSize
+        DataDescriptorSignature
+        DataDescriptorSize
+        ENDHDR
+        EndOfCentralDirectorySignature
+        EndOfCentralRecordBaseSize
+        ENDSIG
+        EXTHDR
+        EXTSIG
+        LocalHeaderBaseSize
+        LocalHeaderSignature
+        LOCHDR
+        LOCSIG
+        SPANNINGSIG
+        SpanningSignature
+        SpanningTempSignature
+        SPANTEMPSIG
+        VERSION_AES
+        VERSION_MADE_BY
+        VERSION_STRONG_ENCRYPTION
+        VersionMadeBy
+        VersionStrongEncryption
+        VersionZip64
+        Zip64CentralDirLocatorSignature
+        Zip64CentralFileHeaderSignature
+        Zip64DataDescriptorSize
+        .ctor()
+        ConvertToArray(System.Int32,System.String)
+        ConvertToString(System.Byte[])
+        ConvertToStringExt(System.Int32,System.Byte[],System.Int32)
+    ICSharpCode.SharpZipLib.Zip.ZipEntry
+        comment
+        .ctor(ICSharpCode.SharpZipLib.Zip.ZipEntry)
+        .ctor(System.String)
+        CleanName(System.String)
+        ForceZip64()
+        get_AESEncryptionStrength()
+        get_AESOverheadSize()
+        get_AESSaltLen()
+        get_Comment()
+        get_CompressionMethodForHeader()
+        get_DateTime()
+        get_DosTime()
+        get_ExtraData()
+        get_HasCrc()
+        get_IsDOSEntry()
+        get_IsFile()
+        get_IsUnicodeText()
+        get_Offset()
+        get_VersionMadeBy()
+        get_ZipFileIndex()
+        IsZip64Forced()
+        set_AESKeySize(System.Int32)
+        set_Comment(System.String)
+        set_ExternalFileAttributes(System.Int32)
+        set_HostSystem(System.Int32)
+        set_IsCrypted(System.Boolean)
+        set_IsUnicodeText(System.Boolean)
+        set_Offset(System.Int64)
+        set_ZipFileIndex(System.Int64)
+    ICSharpCode.SharpZipLib.Zip.ZipEntryFactory
+    ICSharpCode.SharpZipLib.Zip.ZipException
+        .ctor(System.String,System.Exception)
+    ICSharpCode.SharpZipLib.Zip.ZipExtraData
+        .ctor()
+        AddData(System.Byte)
+        AddData(System.Byte[])
+        AddEntry(ICSharpCode.SharpZipLib.Zip.ITaggedData)
+        AddEntry(System.Int32,System.Byte[])
+        AddLeInt(System.Int32)
+        AddLeLong(System.Int64)
+        AddLeShort(System.Int32)
+        AddNewEntry(System.Int32)
+        Clear()
+        Create(System.Int16,System.Byte[],System.Int32,System.Int32)
+        Delete(System.Int32)
+        get_CurrentReadIndex()
+        get_Length()
+        GetData(System.Int16)
+        GetEntryData()
+        GetStreamForTag(System.Int32)
+        SetShort(System.Int32&,System.Int32)
+        StartNewEntry()
+    ICSharpCode.SharpZipLib.Zip.ZipFile
+    ICSharpCode.SharpZipLib.Zip.ZipHelperStream
+    ICSharpCode.SharpZipLib.Zip.ZipInputStream
+        .ctor(System.IO.Stream,System.Int32)
+        get_Available()
+        get_Password()
+        set_Password(System.String)
+    ICSharpCode.SharpZipLib.Zip.ZipNameTransform
+    ICSharpCode.SharpZipLib.Zip.ZipOutputStream
+    ICSharpCode.SharpZipLib.Zip.ZipTestResultHandler
 ---------------------------------------------------
 Assembly: Mono.Security
 ---------------------------------------------------
@@ -710,7 +1018,7 @@ Summary:
     Generic Abstract Classes = 6
     Attributes = 113
   Total Field Removals = 1832
-  Total Method Removals = 6823
+  Total Method Removals = 6820
   References Removed = 0
 ---------------------------------------------------
     <PrivateImplementationDetails>
@@ -3164,7 +3472,6 @@ Summary:
         WriteLine(System.Int64)
         WriteLine(System.Object)
         WriteLine(System.Single)
-        WriteLine(System.String)
         WriteLine(System.String,System.Object)
         WriteLine(System.String,System.Object,System.Object)
         WriteLine(System.String,System.Object,System.Object,System.Object)
@@ -3279,6 +3586,7 @@ Summary:
         ToDateTime(System.UInt64)
         ToDecimal(System.Char)
         ToDecimal(System.DateTime)
+        ToDecimal(System.Decimal)
         ToDecimal(System.Object)
         ToDecimal(System.String)
         ToDouble(System.Char)
@@ -4030,7 +4338,6 @@ Summary:
         get_IDEFAULTANSICODEPAGE()
         get_IDEFAULTEBCDICCODEPAGE()
         get_IDEFAULTMACCODEPAGE()
-        get_IDEFAULTOEMCODEPAGE()
         get_IsRightToLeft()
         get_SLIST()
         IsCustomCultureId(System.Int32)
@@ -4281,7 +4588,6 @@ Summary:
         get_LCID()
         get_ListSeparator()
         get_MacCodePage()
-        get_OEMCodePage()
         IsLetterCategory(System.Globalization.UnicodeCategory)
         IsWordSeparator(System.Globalization.UnicodeCategory)
         ReadOnly(System.Globalization.TextInfo)
@@ -5167,7 +5473,6 @@ Summary:
         MSEED
         MZ
         Next()
-        NextBytes(System.Byte[])
         NextDouble()
     System.RankException
         .ctor(System.String,System.Exception)
@@ -23349,7 +23654,7 @@ Summary:
     Attributes = 0
   Total Field Removals = 0
   Total Method Removals = 0
-  References Removed = 24
+  References Removed = 25
     UnityEngine.AccessibilityModule
     UnityEngine.AIModule
     UnityEngine.ARModule
@@ -23368,6 +23673,7 @@ Summary:
     UnityEngine.TerrainPhysicsModule
     UnityEngine.UIElementsModule
     UnityEngine.UNETModule
+    UnityEngine.UnityAnalyticsModule
     UnityEngine.UnityWebRequestTextureModule
     UnityEngine.VehiclesModule
     UnityEngine.VideoModule
@@ -24354,7 +24660,7 @@ Summary:
     Generic Abstract Classes = 0
     Attributes = 50
   Total Field Removals = 33
-  Total Method Removals = 2069
+  Total Method Removals = 2068
   References Removed = 0
 ---------------------------------------------------
     AOT.MonoPInvokeCallbackAttribute
@@ -24440,7 +24746,6 @@ Summary:
         get_levelCount()
         get_loadedLevel()
         get_loadedLevelName()
-        get_persistentDataPath()
         get_productName()
         get_runInBackground()
         get_sandboxType()
@@ -30382,56 +30687,6 @@ Summary:
     UnityEngine.WebModule
 ---------------------------------------------------
 ---------------------------------------------------
-Assembly: UnityEngine.UnityAnalyticsModule
----------------------------------------------------
-Summary:
-  Total Type Removals = 1
-    Nested = 0
-    Interfaces = 0
-    Abstract Classes = 0
-    Generic Types = 0
-    Generic Interfaces = 0
-    Generic Abstract Classes = 0
-    Attributes = 0
-  Total Field Removals = 0
-  Total Method Removals = 30
-  References Removed = 0
----------------------------------------------------
-    UnityEngine.Analytics.Analytics
-        CustomEvent(System.String)
-        CustomEvent(System.String,UnityEngine.Vector3)
-        FlushEvents()
-        get_deviceStatsEnabled()
-        get_enabled()
-        get_limitUserTracking()
-        set_deviceStatsEnabled(System.Boolean)
-        set_enabled(System.Boolean)
-        set_limitUserTracking(System.Boolean)
-        SetUserBirthYear(System.Int32)
-        SetUserGender(UnityEngine.Analytics.Gender)
-        SetUserId(System.String)
-        Transaction(System.String,System.Decimal,System.String)
-        Transaction(System.String,System.Decimal,System.String,System.String,System.String)
-        Transaction(System.String,System.Decimal,System.String,System.String,System.String,System.Boolean)
-    UnityEngine.Analytics.CustomEventData
-        .ctor()
-    UnityEngine.Analytics.Gender
-    UnityEngine.Analytics.UnityAnalyticsHandler
-        FlushEvents()
-        get_deviceStatsEnabled()
-        get_enabled()
-        get_limitUserTracking()
-        InternalTransaction(System.String,System.Double,System.String,System.String,System.String,System.Boolean)
-        set_deviceStatsEnabled(System.Boolean)
-        set_enabled(System.Boolean)
-        set_limitUserTracking(System.Boolean)
-        SetUserBirthYear(System.Int32)
-        SetUserGender(UnityEngine.Analytics.Gender)
-        SetUserId(System.String)
-        Transaction(System.String,System.Double,System.String)
-        Transaction(System.String,System.Double,System.String,System.String,System.String)
-        Transaction(System.String,System.Double,System.String,System.String,System.String,System.Boolean)
----------------------------------------------------
 Assembly: UnityEngine.UnityConnectModule
 ---------------------------------------------------
 Summary:
@@ -30633,7 +30888,7 @@ Summary:
     UnityEngine.WWWAudioExtensions
 ---------------------------------------------------
 Mono.Cecil.ExportedType Removals:
-  Total: 992
+  Total: 996
 ---------------------------------------------------
 AOT.MonoPInvokeCallbackAttribute
 JetBrains.Annotations.AssertionMethodAttribute
@@ -30703,8 +30958,12 @@ UnityEngine.AI.ObstacleAvoidanceType
 UnityEngine.AI.OffMeshLink
 UnityEngine.AI.OffMeshLinkData
 UnityEngine.AI.OffMeshLinkType
+UnityEngine.Analytics.Analytics
+UnityEngine.Analytics.AnalyticsResult
+UnityEngine.Analytics.CustomEventData
 UnityEngine.Analytics.Gender
 UnityEngine.Analytics.PerformanceReporting
+UnityEngine.Analytics.UnityAnalyticsHandler
 UnityEngine.AnchoredJoint2D
 UnityEngine.AndroidJavaClass
 UnityEngine.AndroidJavaException

@@ -12,6 +12,7 @@
     "archiver": "^2.1.0",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
+    "koa-sslify": "^2.1.2",
     "koa-static": "^4.0.1"
   }
 }

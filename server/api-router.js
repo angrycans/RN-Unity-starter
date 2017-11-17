@@ -8,13 +8,15 @@ var ApiRouter = new Router({
 });
 
 
+const LuaScriptsPath = __dirname + '/../unity/Assets/Resources/LuaScripts';
+
 ApiRouter.get('/files/list', async ctx => {
-  ctx.body = ExFile.list(__dirname + '/../unity/Assets/GameApp/LuaScripts');
+  ctx.body = ExFile.list(LuaScriptsPath);
 });
 
 ApiRouter.get('/files/zip', async ctx => {
   //console.log(ctx);
-  let zip = await ExFile.zip(__dirname + '/../unity/Assets/GameApp/LuaScripts');
+  let zip = await ExFile.zip(LuaScriptsPath);
   if (!zip.err) {
 
     ctx.set('Content-disposition', 'attachment; filename=' + zip.filename);

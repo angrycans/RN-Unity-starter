@@ -14,7 +14,12 @@
 #import <React/RCTLog.h>
 
 #import "RNMEvaluator.h"
-
+@implementation NSURLRequest(DataController)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
+@end
 
 @implementation AppDelegate
 
@@ -43,7 +48,7 @@
     
 #else
     // Run on device with code coming from dev server on PC (change the IP to your PCs IP)
-    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://172.19.3.17:8081/index.ios.bundle?platform=ios&dev=true"]
+    bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://192.168.3.101:8081/index.ios.bundle?platform=ios&dev=true"]
                                               moduleProvider:nil
                                                launchOptions:nil];
 #endif
@@ -106,6 +111,8 @@
 
      return YES;
 }
+
+
 -(void)applicationWillResignActive:(UIApplication *)application{
     [_unityAppController applicationWillResignActive:application];
 }

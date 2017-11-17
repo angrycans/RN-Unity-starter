@@ -3,7 +3,9 @@
 <linker>
 
 	<assembly fullname="Assembly-CSharp">
-	    <type fullname="LuaBehaviour" preserve="all"/>
+	    <type fullname="acans.util.RnLog" preserve="all"/>
+		<type fullname="acans.util.XLuaBehaviour" preserve="all"/>
+		<type fullname="LuaBehaviour" preserve="all"/>
 		<type fullname="XLuaTest.Pedding" preserve="all"/>
 		<type fullname="XLuaTest.MyStruct" preserve="all"/>
 		<type fullname="XLuaTest.MyEnum" preserve="all"/>

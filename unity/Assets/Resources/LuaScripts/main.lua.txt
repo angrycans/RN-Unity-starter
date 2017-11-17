@@ -1,0 +1,35 @@
+        require 'LuaScripts/kits/dump'
+        Rnlog = CS.acans.util.RnLog
+
+        local XLuaBehaviourclass = CS.acans.util.XLuaBehaviour
+        local cube=CS.UnityEngine.GameObject.Find('Cube')
+        XLuaBehaviourclass.test('t');
+        XLuaBehaviourclass.CreateComponet(cube,'LuaScripts/LuaTestScript.lua',null);
+
+
+
+
+--[[---------------------------------------------------------
+        CS.UnityEngine.Debug.Log('hello world')
+        local rnlogClass = CS.acans.util.RnLog
+        CS.UnityEngine.Debug.Log('1')
+        rnlog = rnlogClass
+        CS.UnityEngine.Debug.Log('2')
+        rnlogClass.rnlog('lua test rnlog') 
+        rnlog.rnlog(table.ToString(rnlogClass,'rnlogClass',true))
+        rnlog.rnlog('main ok3') 
+        require 'LuaScripts/kits/coruntine_test'
+        rnlog.rnlog('main ok4') 
+
+        local cube=CS.UnityEngine.GameObject.Find('Cube')
+rnlog.rnlog('main ok5')
+        local XLuaBehaviourclass = CS.acans.util.XLuaBehaviour
+        xLuaBehaviour=XLuaBehaviourclass
+        
+--cube.transform.localScale= CS.UnityEngine.Vector3(6,6,6)
+--cube.transform:Rotate(CS.UnityEngine.Vector3(60,60,60))
+--cube.AddComponent('LuaBehaviour')
+--local script=cube.GetComponent('acans.util.LuaBehaviour')
+--script.luaScript='LuaTestScript.lua.txt'
+--rnlog.rnlog('main ok6') 
+-----------------------------------------------------------]]

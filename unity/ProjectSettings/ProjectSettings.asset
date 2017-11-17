@@ -605,7 +605,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
   cloudProjectId: 4bdad9be-72de-47b5-8cb4-537d4fdb4674
-  projectName: unity (1)
+  projectName: rnunitystarter
   organizationId: untosil
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

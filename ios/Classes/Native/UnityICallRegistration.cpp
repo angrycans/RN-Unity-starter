@@ -1,85 +1,5 @@
 void RegisterAllStrippedInternalCalls()
 {
-	//Start Registrations for type : UnityEngine.Analytics.CustomEventData
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddBool(System.String,System.Boolean)
-		void Register_UnityEngine_Analytics_CustomEventData_AddBool();
-		Register_UnityEngine_Analytics_CustomEventData_AddBool();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddByte(System.String,System.Byte)
-		void Register_UnityEngine_Analytics_CustomEventData_AddByte();
-		Register_UnityEngine_Analytics_CustomEventData_AddByte();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddChar(System.String,System.Char)
-		void Register_UnityEngine_Analytics_CustomEventData_AddChar();
-		Register_UnityEngine_Analytics_CustomEventData_AddChar();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddDouble(System.String,System.Double)
-		void Register_UnityEngine_Analytics_CustomEventData_AddDouble();
-		Register_UnityEngine_Analytics_CustomEventData_AddDouble();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddInt16(System.String,System.Int16)
-		void Register_UnityEngine_Analytics_CustomEventData_AddInt16();
-		Register_UnityEngine_Analytics_CustomEventData_AddInt16();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddInt32(System.String,System.Int32)
-		void Register_UnityEngine_Analytics_CustomEventData_AddInt32();
-		Register_UnityEngine_Analytics_CustomEventData_AddInt32();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddInt64(System.String,System.Int64)
-		void Register_UnityEngine_Analytics_CustomEventData_AddInt64();
-		Register_UnityEngine_Analytics_CustomEventData_AddInt64();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddSByte(System.String,System.SByte)
-		void Register_UnityEngine_Analytics_CustomEventData_AddSByte();
-		Register_UnityEngine_Analytics_CustomEventData_AddSByte();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddString(System.String,System.String)
-		void Register_UnityEngine_Analytics_CustomEventData_AddString();
-		Register_UnityEngine_Analytics_CustomEventData_AddString();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddUInt16(System.String,System.UInt16)
-		void Register_UnityEngine_Analytics_CustomEventData_AddUInt16();
-		Register_UnityEngine_Analytics_CustomEventData_AddUInt16();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddUInt32(System.String,System.UInt32)
-		void Register_UnityEngine_Analytics_CustomEventData_AddUInt32();
-		Register_UnityEngine_Analytics_CustomEventData_AddUInt32();
-
-		//System.Boolean UnityEngine.Analytics.CustomEventData::AddUInt64(System.String,System.UInt64)
-		void Register_UnityEngine_Analytics_CustomEventData_AddUInt64();
-		Register_UnityEngine_Analytics_CustomEventData_AddUInt64();
-
-		//System.Void UnityEngine.Analytics.CustomEventData::InternalCreate(System.String)
-		void Register_UnityEngine_Analytics_CustomEventData_InternalCreate();
-		Register_UnityEngine_Analytics_CustomEventData_InternalCreate();
-
-		//System.Void UnityEngine.Analytics.CustomEventData::InternalDestroy()
-		void Register_UnityEngine_Analytics_CustomEventData_InternalDestroy();
-		Register_UnityEngine_Analytics_CustomEventData_InternalDestroy();
-
-	//End Registrations for type : UnityEngine.Analytics.CustomEventData
-
-	//Start Registrations for type : UnityEngine.Analytics.UnityAnalyticsHandler
-
-		//System.Void UnityEngine.Analytics.UnityAnalyticsHandler::InternalCreate()
-		void Register_UnityEngine_Analytics_UnityAnalyticsHandler_InternalCreate();
-		Register_UnityEngine_Analytics_UnityAnalyticsHandler_InternalCreate();
-
-		//System.Void UnityEngine.Analytics.UnityAnalyticsHandler::InternalDestroy()
-		void Register_UnityEngine_Analytics_UnityAnalyticsHandler_InternalDestroy();
-		Register_UnityEngine_Analytics_UnityAnalyticsHandler_InternalDestroy();
-
-		//UnityEngine.Analytics.AnalyticsResult UnityEngine.Analytics.UnityAnalyticsHandler::SendCustomEvent(UnityEngine.Analytics.CustomEventData)
-		void Register_UnityEngine_Analytics_UnityAnalyticsHandler_SendCustomEvent();
-		Register_UnityEngine_Analytics_UnityAnalyticsHandler_SendCustomEvent();
-
-		//UnityEngine.Analytics.AnalyticsResult UnityEngine.Analytics.UnityAnalyticsHandler::SendCustomEventName(System.String)
-		void Register_UnityEngine_Analytics_UnityAnalyticsHandler_SendCustomEventName();
-		Register_UnityEngine_Analytics_UnityAnalyticsHandler_SendCustomEventName();
-
-	//End Registrations for type : UnityEngine.Analytics.UnityAnalyticsHandler
-
 	//Start Registrations for type : UnityEngine.AnimationClip
 
 		//System.Array UnityEngine.AnimationClip::GetEventsInternal()
@@ -265,6 +185,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Boolean UnityEngine.Application::get_isPlaying()
 		void Register_UnityEngine_Application_get_isPlaying();
 		Register_UnityEngine_Application_get_isPlaying();
+
+		//System.String UnityEngine.Application::get_persistentDataPath()
+		void Register_UnityEngine_Application_get_persistentDataPath();
+		Register_UnityEngine_Application_get_persistentDataPath();
 
 		//System.String UnityEngine.Application::get_streamingAssetsPath()
 		void Register_UnityEngine_Application_get_streamingAssetsPath();

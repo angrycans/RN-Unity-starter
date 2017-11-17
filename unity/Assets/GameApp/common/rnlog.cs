@@ -10,6 +10,7 @@ namespace acans.util
   [LuaCallCSharp]
   public class RnLog
   {
+
     [LuaCallCSharp]
 
 #if UNITY_EDITOR
@@ -23,6 +24,15 @@ namespace acans.util
     [DllImportAttribute("__Internal")]
 		public static extern void rnlog(string txt);
 #endif
+
+
+    [LuaCallCSharp]
+    public static void test(string txt)
+    {
+      Debug.Log("xluabehaviour test=>" + txt);
+    }
   }
+
+
 
 }

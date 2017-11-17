@@ -15,7 +15,7 @@ function list(dirpath) {
     if (!stat.isDirectory()) {
       res.push(pathname);
     } else {
-      res = res.concat(getAllFiles(pathname));
+      res = res.concat(list(pathname));
     }
   });
   return res

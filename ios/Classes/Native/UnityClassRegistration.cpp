@@ -20,9 +20,6 @@ void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_ParticleSystem();
 	RegisterModule_ParticleSystem();
 
-	void RegisterModule_PerformanceReporting();
-	RegisterModule_PerformanceReporting();
-
 	void RegisterModule_Physics();
 	RegisterModule_Physics();
 
@@ -31,9 +28,6 @@ void RegisterStaticallyLinkedModulesGranular()
 
 	void RegisterModule_UI();
 	RegisterModule_UI();
-
-	void RegisterModule_UnityAnalytics();
-	RegisterModule_UnityAnalytics();
 
 	void RegisterModule_UnityConnect();
 	RegisterModule_UnityConnect();
@@ -255,7 +249,7 @@ class MasterServerInterface; template <> void RegisterClass<MasterServerInterfac
 class MonoManager; template <> void RegisterClass<MonoManager>();
 class NavMeshProjectSettings; 
 class NetworkManager; template <> void RegisterClass<NetworkManager>();
-class PerformanceReportingManager; template <> void RegisterClass<PerformanceReportingManager>();
+class PerformanceReportingManager; 
 class Physics2DSettings; 
 class PhysicsManager; template <> void RegisterClass<PhysicsManager>();
 class PlayerSettings; template <> void RegisterClass<PlayerSettings>();
@@ -265,7 +259,7 @@ class RuntimeInitializeOnLoadManager; template <> void RegisterClass<RuntimeInit
 class ScriptMapper; template <> void RegisterClass<ScriptMapper>();
 class TagManager; template <> void RegisterClass<TagManager>();
 class TimeManager; template <> void RegisterClass<TimeManager>();
-class UnityAnalyticsManager; template <> void RegisterClass<UnityAnalyticsManager>();
+class UnityAnalyticsManager; 
 class UnityConnectSettings; template <> void RegisterClass<UnityConnectSettings>();
 class LevelGameManager; template <> void RegisterClass<LevelGameManager>();
 class LightmapSettings; template <> void RegisterClass<LightmapSettings>();
@@ -279,7 +273,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 73 non stripped classes
+	//Total: 71 non stripped classes
 	//0. AssetBundle
 	RegisterClass<AssetBundle>();
 	//1. NamedObject
@@ -400,31 +394,27 @@ RegisterBuiltinTypes();
 	RegisterClass<MonoScript>();
 	//59. MonoManager
 	RegisterClass<MonoManager>();
-	//60. UnityAnalyticsManager
-	RegisterClass<UnityAnalyticsManager>();
-	//61. PerformanceReportingManager
-	RegisterClass<PerformanceReportingManager>();
-	//62. UnityConnectSettings
+	//60. UnityConnectSettings
 	RegisterClass<UnityConnectSettings>();
-	//63. CloudWebServicesManager
+	//61. CloudWebServicesManager
 	RegisterClass<CloudWebServicesManager>();
-	//64. AudioManager
+	//62. AudioManager
 	RegisterClass<AudioManager>();
-	//65. LevelGameManager
+	//63. LevelGameManager
 	RegisterClass<LevelGameManager>();
-	//66. BoxCollider
+	//64. BoxCollider
 	RegisterClass<BoxCollider>();
-	//67. Collider
+	//65. Collider
 	RegisterClass<Collider>();
-	//68. FlareLayer
+	//66. FlareLayer
 	RegisterClass<FlareLayer>();
-	//69. Light
+	//67. Light
 	RegisterClass<Light>();
-	//70. RenderSettings
+	//68. RenderSettings
 	RegisterClass<RenderSettings>();
-	//71. LightmapSettings
+	//69. LightmapSettings
 	RegisterClass<LightmapSettings>();
-	//72. LightProbes
+	//70. LightProbes
 	RegisterClass<LightProbes>();
 
 }
