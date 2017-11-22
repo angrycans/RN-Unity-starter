@@ -10,6 +10,15 @@ namespace acans.util
   public static class GameManager
   {
     public static XLua.LuaEnv LUAENV = new XLua.LuaEnv();
+
+    public static void Reload()
+    {
+      RnLog.rnlog("GameManager Reload");
+
+      GameManager.LUAENV = null;
+      GameManager.LUAENV = new XLua.LuaEnv();
+
+    }
     public static string LoadTextAsset(string path)
     {
 

@@ -171,6 +171,13 @@ bool    _supportsMSAA           = false;
     UnitySetPlayerFocus(1);
 }
 
+- (void)restartUnity:(UIApplication*)application
+{
+    RCTLog(@"restartUnity...");
+   
+}
+
+
 extern "C" void UnityDestroyDisplayLink()
 {
     [GetAppController() destroyDisplayLink];

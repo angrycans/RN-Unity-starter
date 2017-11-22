@@ -11,38 +11,32 @@ import {
   Text,
   View,
   Button,
-  NativeModules
+  NativeModules, PixelRatio, Dimensions, TouchableHighlight
 } from 'react-native';
+
+
 require('react-native-eval')
 
 
 import UnityView from './src/unityview.js'
 
-var NavigateManager = NativeModules.NavigateBridge;
 
-const onButtonPress = () => {
-  NavigateManager.startUnity();
-};
+var NativeBridge = NativeModules.NativeBridge;
+
+
 
 export default class RNUnityStarter extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-
-        <Button onPress={onButtonPress}
-          title="Press me!"
-        />
-        <UnityView style={{ width: 300, height: 200 }} />
+      <View style={styles.container} >
+        <UnityView style={{ width: Dimensions.get("window").width, height: Dimensions.get("window").height }} />
+        <TouchableHighlight style={[styles.box2, { position: 'absolute', top: 0 }]}
+          onPress={() => {
+            NativeBridge.restartUnity();
+            NativeBridge.SendMessageToUnity(JSON.stringify({ gameobject: 'obj', func: "func", params: "1" }));
+          }}>
+          <View></View>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -65,6 +59,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  box2: {
+    width: 200,
+    height: 200,
+    backgroundColor: '#00FF00'
+  }
 });
 
 AppRegistry.registerComponent('RNUnityStarter', () => RNUnityStarter);

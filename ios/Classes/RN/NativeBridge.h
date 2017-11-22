@@ -6,11 +6,11 @@
 //  Copyright © 2017年 Facebook. All rights reserved.
 //
 
-#ifndef NavigateBridge_h
-#define NavigateBridge_h
+#ifndef NativeBridge_h
+#define NativeBridge_h
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTLog.h>
-@interface NavigateBridge : NSObject<RCTBridgeModule>
+@interface NativeBridge : NSObject<RCTBridgeModule>
 @end
 #endif /* NavigateBridge_h */

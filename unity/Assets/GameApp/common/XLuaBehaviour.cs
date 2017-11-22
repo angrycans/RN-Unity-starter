@@ -42,7 +42,7 @@ namespace acans.util
     [LuaCallCSharp]
     public static XLuaBehaviour CreateComponet(GameObject obj, string _textasset, XInjection[] injections)
     {
-      RnLog.rnlog("LuaBehaviour CreateComponet()");
+      RnLog.rnlog("XLuaBehaviour CreateComponet()");
       obj.SetActive(false);
 
       XLuaBehaviour luabehaviour = obj.AddComponent<XLuaBehaviour>();
@@ -64,7 +64,7 @@ namespace acans.util
     void Awake()
     {
 
-      RnLog.rnlog("Attach Script LuaBehaviout.cs to GameObject");
+      RnLog.rnlog("Attach Script XLuaBehaviout.cs to GameObject");
       //RnLog.rnlog("luaScript.text=\n" + luaScript.text);
 
       scriptEnv = luaEnv.NewTable();

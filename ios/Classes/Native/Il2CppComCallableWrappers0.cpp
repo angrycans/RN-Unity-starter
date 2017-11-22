@@ -14,33 +14,33 @@
 #include "object-internals.h"
 
 // System.Runtime.InteropServices.ManagedErrorInfo
-struct ManagedErrorInfo_t3978487595;
+struct ManagedErrorInfo_t1809499482;
 // System.String
 struct String_t;
 // System.Exception
-struct Exception_t1895951012;
+struct Exception_t3092957848;
 // System.Security.Cryptography.RandomNumberGenerator
-struct RandomNumberGenerator_t2284404197;
+struct RandomNumberGenerator_t3116766310;
 
 extern RuntimeClass* String_t_il2cpp_TypeInfo_var;
-extern const uint32_t IErrorInfo_GetGUID_m1820495157_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetGUID_m518023624_MetadataUsageId;
-extern const uint32_t IErrorInfo_GetSource_m2762179254_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetSource_m3279298297_MetadataUsageId;
-extern const uint32_t IErrorInfo_GetDescription_m2385898703_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetDescription_m1127347426_MetadataUsageId;
-extern const uint32_t IErrorInfo_GetHelpFile_m2596014355_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetHelpFile_m1510930900_MetadataUsageId;
-extern const uint32_t IErrorInfo_GetHelpContext_m2331440059_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetHelpContext_m3937114543_MetadataUsageId;
+extern const uint32_t IErrorInfo_GetGUID_m2039647322_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetGUID_m3350381299_MetadataUsageId;
+extern const uint32_t IErrorInfo_GetSource_m970472576_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetSource_m2156044394_MetadataUsageId;
+extern const uint32_t IErrorInfo_GetDescription_m3797751060_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetDescription_m3157114901_MetadataUsageId;
+extern const uint32_t IErrorInfo_GetHelpFile_m2563658692_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetHelpFile_m3170372681_MetadataUsageId;
+extern const uint32_t IErrorInfo_GetHelpContext_m2850491560_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetHelpContext_m4113649280_MetadataUsageId;
 struct Guid_t ;
 
 
 
 // System.Runtime.InteropServices.IErrorInfo
-struct NOVTABLE IErrorInfo_t1668042125 : Il2CppIUnknown
+struct NOVTABLE IErrorInfo_t2691721596 : Il2CppIUnknown
 {
 	static const Il2CppGuid IID;
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetGUID_m1820495157(Guid_t * ___pGuid0, int32_t* comReturnValue) = 0;
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetSource_m2762179254(Il2CppChar** ___pBstrSource0, int32_t* comReturnValue) = 0;
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetDescription_m2385898703(Il2CppChar** ___pbstrDescription0, int32_t* comReturnValue) = 0;
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpFile_m2596014355(Il2CppChar** ___pBstrHelpFile0, int32_t* comReturnValue) = 0;
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpContext_m2331440059(uint32_t* ___pdwHelpContext0, int32_t* comReturnValue) = 0;
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetGUID_m2039647322(Guid_t * ___pGuid0, int32_t* comReturnValue) = 0;
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetSource_m970472576(Il2CppChar** ___pBstrSource0, int32_t* comReturnValue) = 0;
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetDescription_m3797751060(Il2CppChar** ___pbstrDescription0, int32_t* comReturnValue) = 0;
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpFile_m2563658692(Il2CppChar** ___pBstrHelpFile0, int32_t* comReturnValue) = 0;
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpContext_m2850491560(uint32_t* ___pdwHelpContext0, int32_t* comReturnValue) = 0;
 };
 #ifndef RUNTIMEOBJECT_H
 #define RUNTIMEOBJECT_H
@@ -56,8 +56,8 @@ struct NOVTABLE IErrorInfo_t1668042125 : Il2CppIUnknown
 #pragma clang diagnostic pop
 #endif
 #endif // RUNTIMEOBJECT_H
-#ifndef MANAGEDERRORINFO_T3978487595_H
-#define MANAGEDERRORINFO_T3978487595_H
+#ifndef MANAGEDERRORINFO_T1809499482_H
+#define MANAGEDERRORINFO_T1809499482_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -65,17 +65,17 @@ struct NOVTABLE IErrorInfo_t1668042125 : Il2CppIUnknown
 #endif
 
 // System.Runtime.InteropServices.ManagedErrorInfo
-struct  ManagedErrorInfo_t3978487595  : public RuntimeObject
+struct  ManagedErrorInfo_t1809499482  : public RuntimeObject
 {
 public:
 	// System.Exception System.Runtime.InteropServices.ManagedErrorInfo::m_Exception
-	Exception_t1895951012 * ___m_Exception_0;
+	Exception_t3092957848 * ___m_Exception_0;
 
 public:
-	inline static int32_t get_offset_of_m_Exception_0() { return static_cast<int32_t>(offsetof(ManagedErrorInfo_t3978487595, ___m_Exception_0)); }
-	inline Exception_t1895951012 * get_m_Exception_0() const { return ___m_Exception_0; }
-	inline Exception_t1895951012 ** get_address_of_m_Exception_0() { return &___m_Exception_0; }
-	inline void set_m_Exception_0(Exception_t1895951012 * value)
+	inline static int32_t get_offset_of_m_Exception_0() { return static_cast<int32_t>(offsetof(ManagedErrorInfo_t1809499482, ___m_Exception_0)); }
+	inline Exception_t3092957848 * get_m_Exception_0() const { return ___m_Exception_0; }
+	inline Exception_t3092957848 ** get_address_of_m_Exception_0() { return &___m_Exception_0; }
+	inline void set_m_Exception_0(Exception_t3092957848 * value)
 	{
 		___m_Exception_0 = value;
 		Il2CppCodeGenWriteBarrier((&___m_Exception_0), value);
@@ -85,7 +85,7 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // MANAGEDERRORINFO_T3978487595_H
+#endif // MANAGEDERRORINFO_T1809499482_H
 #ifndef STRING_T_H
 #define STRING_T_H
 #ifdef __clang__
@@ -142,8 +142,8 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // STRING_T_H
-#ifndef VALUETYPE_T2839607602_H
-#define VALUETYPE_T2839607602_H
+#ifndef VALUETYPE_T221354359_H
+#define VALUETYPE_T221354359_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -151,7 +151,7 @@ public:
 #endif
 
 // System.ValueType
-struct  ValueType_t2839607602  : public RuntimeObject
+struct  ValueType_t221354359  : public RuntimeObject
 {
 public:
 
@@ -162,14 +162,14 @@ public:
 #pragma clang diagnostic pop
 #endif
 // Native definition for P/Invoke marshalling of System.ValueType
-struct ValueType_t2839607602_marshaled_pinvoke
+struct ValueType_t221354359_marshaled_pinvoke
 {
 };
 // Native definition for COM marshalling of System.ValueType
-struct ValueType_t2839607602_marshaled_com
+struct ValueType_t221354359_marshaled_com
 {
 };
-#endif // VALUETYPE_T2839607602_H
+#endif // VALUETYPE_T221354359_H
 #ifndef GUID_T_H
 #define GUID_T_H
 #ifdef __clang__
@@ -301,9 +301,9 @@ public:
 	// System.Object System.Guid::_rngAccess
 	RuntimeObject * ____rngAccess_0;
 	// System.Security.Cryptography.RandomNumberGenerator System.Guid::_rng
-	RandomNumberGenerator_t2284404197 * ____rng_1;
+	RandomNumberGenerator_t3116766310 * ____rng_1;
 	// System.Security.Cryptography.RandomNumberGenerator System.Guid::_fastRng
-	RandomNumberGenerator_t2284404197 * ____fastRng_2;
+	RandomNumberGenerator_t3116766310 * ____fastRng_2;
 	// System.Guid System.Guid::Empty
 	Guid_t  ___Empty_3;
 
@@ -318,18 +318,18 @@ public:
 	}
 
 	inline static int32_t get_offset_of__rng_1() { return static_cast<int32_t>(offsetof(Guid_t_StaticFields, ____rng_1)); }
-	inline RandomNumberGenerator_t2284404197 * get__rng_1() const { return ____rng_1; }
-	inline RandomNumberGenerator_t2284404197 ** get_address_of__rng_1() { return &____rng_1; }
-	inline void set__rng_1(RandomNumberGenerator_t2284404197 * value)
+	inline RandomNumberGenerator_t3116766310 * get__rng_1() const { return ____rng_1; }
+	inline RandomNumberGenerator_t3116766310 ** get_address_of__rng_1() { return &____rng_1; }
+	inline void set__rng_1(RandomNumberGenerator_t3116766310 * value)
 	{
 		____rng_1 = value;
 		Il2CppCodeGenWriteBarrier((&____rng_1), value);
 	}
 
 	inline static int32_t get_offset_of__fastRng_2() { return static_cast<int32_t>(offsetof(Guid_t_StaticFields, ____fastRng_2)); }
-	inline RandomNumberGenerator_t2284404197 * get__fastRng_2() const { return ____fastRng_2; }
-	inline RandomNumberGenerator_t2284404197 ** get_address_of__fastRng_2() { return &____fastRng_2; }
-	inline void set__fastRng_2(RandomNumberGenerator_t2284404197 * value)
+	inline RandomNumberGenerator_t3116766310 * get__fastRng_2() const { return ____fastRng_2; }
+	inline RandomNumberGenerator_t3116766310 ** get_address_of__fastRng_2() { return &____fastRng_2; }
+	inline void set__fastRng_2(RandomNumberGenerator_t3116766310 * value)
 	{
 		____fastRng_2 = value;
 		Il2CppCodeGenWriteBarrier((&____fastRng_2), value);
@@ -348,8 +348,8 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // GUID_T_H
-#ifndef UINT32_T2313610916_H
-#define UINT32_T2313610916_H
+#ifndef UINT32_T2673469311_H
+#define UINT32_T2673469311_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -357,14 +357,14 @@ public:
 #endif
 
 // System.UInt32
-struct  UInt32_t2313610916 
+struct  UInt32_t2673469311 
 {
 public:
 	// System.UInt32 System.UInt32::m_value
 	uint32_t ___m_value_0;
 
 public:
-	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(UInt32_t2313610916, ___m_value_0)); }
+	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(UInt32_t2673469311, ___m_value_0)); }
 	inline uint32_t get_m_value_0() const { return ___m_value_0; }
 	inline uint32_t* get_address_of_m_value_0() { return &___m_value_0; }
 	inline void set_m_value_0(uint32_t value)
@@ -376,25 +376,25 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // UINT32_T2313610916_H
+#endif // UINT32_T2673469311_H
 
 
 
 // System.Int32 System.Runtime.InteropServices.ManagedErrorInfo::GetGUID(System.Guid&)
-extern "C"  int32_t ManagedErrorInfo_GetGUID_m518023624 (ManagedErrorInfo_t3978487595 * __this, Guid_t * ___guid0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+extern "C"  int32_t ManagedErrorInfo_GetGUID_m3350381299 (ManagedErrorInfo_t1809499482 * __this, Guid_t * ___guid0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Runtime.InteropServices.ManagedErrorInfo::GetSource(System.String&)
-extern "C"  int32_t ManagedErrorInfo_GetSource_m3279298297 (ManagedErrorInfo_t3978487595 * __this, String_t** ___source0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+extern "C"  int32_t ManagedErrorInfo_GetSource_m2156044394 (ManagedErrorInfo_t1809499482 * __this, String_t** ___source0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Runtime.InteropServices.ManagedErrorInfo::GetDescription(System.String&)
-extern "C"  int32_t ManagedErrorInfo_GetDescription_m1127347426 (ManagedErrorInfo_t3978487595 * __this, String_t** ___description0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+extern "C"  int32_t ManagedErrorInfo_GetDescription_m3157114901 (ManagedErrorInfo_t1809499482 * __this, String_t** ___description0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Runtime.InteropServices.ManagedErrorInfo::GetHelpFile(System.String&)
-extern "C"  int32_t ManagedErrorInfo_GetHelpFile_m1510930900 (ManagedErrorInfo_t3978487595 * __this, String_t** ___helpFile0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+extern "C"  int32_t ManagedErrorInfo_GetHelpFile_m3170372681 (ManagedErrorInfo_t1809499482 * __this, String_t** ___helpFile0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 // System.Int32 System.Runtime.InteropServices.ManagedErrorInfo::GetHelpContext(System.UInt32&)
-extern "C"  int32_t ManagedErrorInfo_GetHelpContext_m3937114543 (ManagedErrorInfo_t3978487595 * __this, uint32_t* ___helpContext0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
+extern "C"  int32_t ManagedErrorInfo_GetHelpContext_m4113649280 (ManagedErrorInfo_t1809499482 * __this, uint32_t* ___helpContext0, const RuntimeMethod* method) IL2CPP_METHOD_ATTR;
 
 // COM Callable Wrapper for System.Runtime.InteropServices.ManagedErrorInfo
-struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm::CachedCCWBase<ManagedErrorInfo_t3978487595_ComCallableWrapper>, IErrorInfo_t1668042125
+struct ManagedErrorInfo_t1809499482_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm::CachedCCWBase<ManagedErrorInfo_t1809499482_ComCallableWrapper>, IErrorInfo_t2691721596
 {
-	inline ManagedErrorInfo_t3978487595_ComCallableWrapper(RuntimeObject* obj) : il2cpp::vm::CachedCCWBase<ManagedErrorInfo_t3978487595_ComCallableWrapper>(obj) {}
+	inline ManagedErrorInfo_t1809499482_ComCallableWrapper(RuntimeObject* obj) : il2cpp::vm::CachedCCWBase<ManagedErrorInfo_t1809499482_ComCallableWrapper>(obj) {}
 
 	virtual il2cpp_hresult_t STDCALL QueryInterface(const Il2CppGuid& iid, void** object) IL2CPP_OVERRIDE
 	{
@@ -414,9 +414,9 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 			return IL2CPP_S_OK;
 		}
 
-		if (::memcmp(&iid, &IErrorInfo_t1668042125::IID, sizeof(Il2CppGuid)) == 0)
+		if (::memcmp(&iid, &IErrorInfo_t2691721596::IID, sizeof(Il2CppGuid)) == 0)
 		{
-			*object = static_cast<IErrorInfo_t1668042125*>(this);
+			*object = static_cast<IErrorInfo_t2691721596*>(this);
 			AddRefImpl();
 			return IL2CPP_S_OK;
 		}
@@ -449,12 +449,12 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		return IL2CPP_S_OK;
 	}
 
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetGUID_m1820495157(Guid_t * ___guid0, int32_t* comReturnValue) IL2CPP_OVERRIDE
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetGUID_m2039647322(Guid_t * ___guid0, int32_t* comReturnValue) IL2CPP_OVERRIDE
 	{
 		static bool s_Il2CppMethodInitialized;
 		if (!s_Il2CppMethodInitialized)
 		{
-			il2cpp_codegen_initialize_method (IErrorInfo_GetGUID_m1820495157_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetGUID_m518023624_MetadataUsageId);
+			il2cpp_codegen_initialize_method (IErrorInfo_GetGUID_m2039647322_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetGUID_m3350381299_MetadataUsageId);
 			s_Il2CppMethodInitialized = true;
 		}
 		il2cpp_native_wrapper_vm_thread_attacher _vmThreadHelper;
@@ -467,8 +467,8 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		int32_t returnValue;
 		try
 		{
-			ManagedErrorInfo_t3978487595 * __thisValue = (ManagedErrorInfo_t3978487595 *)GetManagedObjectInline();
-			returnValue = ManagedErrorInfo_GetGUID_m518023624(__thisValue, (&____guid0_empty), NULL);
+			ManagedErrorInfo_t1809499482 * __thisValue = (ManagedErrorInfo_t1809499482 *)GetManagedObjectInline();
+			returnValue = ManagedErrorInfo_GetGUID_m3350381299(__thisValue, (&____guid0_empty), NULL);
 		}
 		catch (const Il2CppExceptionWrapper& ex)
 		{
@@ -493,12 +493,12 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		return IL2CPP_S_OK;
 	}
 
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetSource_m2762179254(Il2CppChar** ___source0, int32_t* comReturnValue) IL2CPP_OVERRIDE
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetSource_m970472576(Il2CppChar** ___source0, int32_t* comReturnValue) IL2CPP_OVERRIDE
 	{
 		static bool s_Il2CppMethodInitialized;
 		if (!s_Il2CppMethodInitialized)
 		{
-			il2cpp_codegen_initialize_method (IErrorInfo_GetSource_m2762179254_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetSource_m3279298297_MetadataUsageId);
+			il2cpp_codegen_initialize_method (IErrorInfo_GetSource_m970472576_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetSource_m2156044394_MetadataUsageId);
 			s_Il2CppMethodInitialized = true;
 		}
 		il2cpp_native_wrapper_vm_thread_attacher _vmThreadHelper;
@@ -510,8 +510,8 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		int32_t returnValue;
 		try
 		{
-			ManagedErrorInfo_t3978487595 * __thisValue = (ManagedErrorInfo_t3978487595 *)GetManagedObjectInline();
-			returnValue = ManagedErrorInfo_GetSource_m3279298297(__thisValue, (&____source0_empty), NULL);
+			ManagedErrorInfo_t1809499482 * __thisValue = (ManagedErrorInfo_t1809499482 *)GetManagedObjectInline();
+			returnValue = ManagedErrorInfo_GetSource_m2156044394(__thisValue, (&____source0_empty), NULL);
 		}
 		catch (const Il2CppExceptionWrapper& ex)
 		{
@@ -536,12 +536,12 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		return IL2CPP_S_OK;
 	}
 
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetDescription_m2385898703(Il2CppChar** ___description0, int32_t* comReturnValue) IL2CPP_OVERRIDE
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetDescription_m3797751060(Il2CppChar** ___description0, int32_t* comReturnValue) IL2CPP_OVERRIDE
 	{
 		static bool s_Il2CppMethodInitialized;
 		if (!s_Il2CppMethodInitialized)
 		{
-			il2cpp_codegen_initialize_method (IErrorInfo_GetDescription_m2385898703_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetDescription_m1127347426_MetadataUsageId);
+			il2cpp_codegen_initialize_method (IErrorInfo_GetDescription_m3797751060_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetDescription_m3157114901_MetadataUsageId);
 			s_Il2CppMethodInitialized = true;
 		}
 		il2cpp_native_wrapper_vm_thread_attacher _vmThreadHelper;
@@ -553,8 +553,8 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		int32_t returnValue;
 		try
 		{
-			ManagedErrorInfo_t3978487595 * __thisValue = (ManagedErrorInfo_t3978487595 *)GetManagedObjectInline();
-			returnValue = ManagedErrorInfo_GetDescription_m1127347426(__thisValue, (&____description0_empty), NULL);
+			ManagedErrorInfo_t1809499482 * __thisValue = (ManagedErrorInfo_t1809499482 *)GetManagedObjectInline();
+			returnValue = ManagedErrorInfo_GetDescription_m3157114901(__thisValue, (&____description0_empty), NULL);
 		}
 		catch (const Il2CppExceptionWrapper& ex)
 		{
@@ -579,12 +579,12 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		return IL2CPP_S_OK;
 	}
 
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpFile_m2596014355(Il2CppChar** ___helpFile0, int32_t* comReturnValue) IL2CPP_OVERRIDE
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpFile_m2563658692(Il2CppChar** ___helpFile0, int32_t* comReturnValue) IL2CPP_OVERRIDE
 	{
 		static bool s_Il2CppMethodInitialized;
 		if (!s_Il2CppMethodInitialized)
 		{
-			il2cpp_codegen_initialize_method (IErrorInfo_GetHelpFile_m2596014355_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetHelpFile_m1510930900_MetadataUsageId);
+			il2cpp_codegen_initialize_method (IErrorInfo_GetHelpFile_m2563658692_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetHelpFile_m3170372681_MetadataUsageId);
 			s_Il2CppMethodInitialized = true;
 		}
 		il2cpp_native_wrapper_vm_thread_attacher _vmThreadHelper;
@@ -596,8 +596,8 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		int32_t returnValue;
 		try
 		{
-			ManagedErrorInfo_t3978487595 * __thisValue = (ManagedErrorInfo_t3978487595 *)GetManagedObjectInline();
-			returnValue = ManagedErrorInfo_GetHelpFile_m1510930900(__thisValue, (&____helpFile0_empty), NULL);
+			ManagedErrorInfo_t1809499482 * __thisValue = (ManagedErrorInfo_t1809499482 *)GetManagedObjectInline();
+			returnValue = ManagedErrorInfo_GetHelpFile_m3170372681(__thisValue, (&____helpFile0_empty), NULL);
 		}
 		catch (const Il2CppExceptionWrapper& ex)
 		{
@@ -622,12 +622,12 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		return IL2CPP_S_OK;
 	}
 
-	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpContext_m2331440059(uint32_t* ___helpContext0, int32_t* comReturnValue) IL2CPP_OVERRIDE
+	virtual il2cpp_hresult_t STDCALL IErrorInfo_GetHelpContext_m2850491560(uint32_t* ___helpContext0, int32_t* comReturnValue) IL2CPP_OVERRIDE
 	{
 		static bool s_Il2CppMethodInitialized;
 		if (!s_Il2CppMethodInitialized)
 		{
-			il2cpp_codegen_initialize_method (IErrorInfo_GetHelpContext_m2331440059_CCW_ManagedErrorInfo_t3978487595_ComCallableWrapper_ManagedErrorInfo_GetHelpContext_m3937114543_MetadataUsageId);
+			il2cpp_codegen_initialize_method (IErrorInfo_GetHelpContext_m2850491560_CCW_ManagedErrorInfo_t1809499482_ComCallableWrapper_ManagedErrorInfo_GetHelpContext_m4113649280_MetadataUsageId);
 			s_Il2CppMethodInitialized = true;
 		}
 		il2cpp_native_wrapper_vm_thread_attacher _vmThreadHelper;
@@ -639,8 +639,8 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 		int32_t returnValue;
 		try
 		{
-			ManagedErrorInfo_t3978487595 * __thisValue = (ManagedErrorInfo_t3978487595 *)GetManagedObjectInline();
-			returnValue = ManagedErrorInfo_GetHelpContext_m3937114543(__thisValue, (&____helpContext0_empty), NULL);
+			ManagedErrorInfo_t1809499482 * __thisValue = (ManagedErrorInfo_t1809499482 *)GetManagedObjectInline();
+			returnValue = ManagedErrorInfo_GetHelpContext_m4113649280(__thisValue, (&____helpContext0_empty), NULL);
 		}
 		catch (const Il2CppExceptionWrapper& ex)
 		{
@@ -666,13 +666,13 @@ struct ManagedErrorInfo_t3978487595_ComCallableWrapper IL2CPP_FINAL : il2cpp::vm
 	}
 };
 
-extern "C" Il2CppIUnknown* CreateComCallableWrapperFor_ManagedErrorInfo_t3978487595(RuntimeObject* obj)
+extern "C" Il2CppIUnknown* CreateComCallableWrapperFor_ManagedErrorInfo_t1809499482(RuntimeObject* obj)
 {
-	void* memory = il2cpp::utils::Memory::Malloc(sizeof(ManagedErrorInfo_t3978487595_ComCallableWrapper));
+	void* memory = il2cpp::utils::Memory::Malloc(sizeof(ManagedErrorInfo_t1809499482_ComCallableWrapper));
 	if (memory == NULL)
 	{
 		il2cpp_codegen_raise_out_of_memory_exception();
 	}
 
-	return static_cast<Il2CppIManagedObjectHolder*>(new(memory) ManagedErrorInfo_t3978487595_ComCallableWrapper(obj));
+	return static_cast<Il2CppIManagedObjectHolder*>(new(memory) ManagedErrorInfo_t1809499482_ComCallableWrapper(obj));
 }

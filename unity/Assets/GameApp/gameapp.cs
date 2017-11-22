@@ -4,12 +4,14 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using ICSharpCode.SharpZipLib.Zip;
 
 using System.Runtime.InteropServices;
 using acans.util;
 
-public class gameapp : MonoBehaviour
+public class GameApp : MonoBehaviour
 {
 
   // Use this for initialization
@@ -18,7 +20,7 @@ public class gameapp : MonoBehaviour
   void Start()
   {
     //test c# call rnlog
-    //RnLog.rnlog("c# test rnlog");
+    RnLog.rnlog("Gameapp start");
 
     //var obj = GameObject.Find("Cube");
     //XLuaBehaviour.CreateComponet(obj, "LuaScripts/LuaTestScript.lua", null);
@@ -197,5 +199,22 @@ public class gameapp : MonoBehaviour
     }
   }
 
+  void OnDestory()
+  {
+    RnLog.rnlog("GameApp OnDestory=>");
+
+  }
+  public void NativeMessage(string _parmas)
+  {
+    RnLog.rnlog("GameAppp NativeMessage=>" + _parmas);
+  }
+
+  public void ReloadScene()
+  {
+    RnLog.rnlog("ReloadScene=>");
+    GameManager.Reload();
+    Scene scene = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(scene.name);
+  }
 
 }

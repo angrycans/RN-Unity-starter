@@ -19,20 +19,20 @@
 #include "object-internals.h"
 
 // UnityEngine.Texture2D
-struct Texture2D_t847220017;
+struct Texture2D_t292688681;
 // System.Byte[]
-struct ByteU5BU5D_t3069277512;
+struct ByteU5BU5D_t3406352019;
 // System.String
 struct String_t;
 // System.Void
-struct Void_t237477608;
+struct Void_t4217116866;
 
 
-struct ByteU5BU5D_t3069277512;
+struct ByteU5BU5D_t3406352019;
 
 
-#ifndef U3CMODULEU3E_T2633295039_H
-#define U3CMODULEU3E_T2633295039_H
+#ifndef U3CMODULEU3E_T2792122459_H
+#define U3CMODULEU3E_T2792122459_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -40,7 +40,7 @@ struct ByteU5BU5D_t3069277512;
 #endif
 
 // <Module>
-struct  U3CModuleU3E_t2633295039 
+struct  U3CModuleU3E_t2792122459 
 {
 public:
 
@@ -50,7 +50,7 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // U3CMODULEU3E_T2633295039_H
+#endif // U3CMODULEU3E_T2792122459_H
 #ifndef RUNTIMEOBJECT_H
 #define RUNTIMEOBJECT_H
 #ifdef __clang__
@@ -80,8 +80,8 @@ struct Il2CppArrayBounds;
 #pragma clang diagnostic pop
 #endif
 #endif // RUNTIMEARRAY_H
-#ifndef IMAGECONVERSION_T70438986_H
-#define IMAGECONVERSION_T70438986_H
+#ifndef IMAGECONVERSION_T1065047903_H
+#define IMAGECONVERSION_T1065047903_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -89,7 +89,7 @@ struct Il2CppArrayBounds;
 #endif
 
 // UnityEngine.ImageConversion
-struct  ImageConversion_t70438986  : public RuntimeObject
+struct  ImageConversion_t1065047903  : public RuntimeObject
 {
 public:
 
@@ -99,9 +99,9 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // IMAGECONVERSION_T70438986_H
-#ifndef VALUETYPE_T2839607602_H
-#define VALUETYPE_T2839607602_H
+#endif // IMAGECONVERSION_T1065047903_H
+#ifndef VALUETYPE_T221354359_H
+#define VALUETYPE_T221354359_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -109,7 +109,7 @@ public:
 #endif
 
 // System.ValueType
-struct  ValueType_t2839607602  : public RuntimeObject
+struct  ValueType_t221354359  : public RuntimeObject
 {
 public:
 
@@ -120,16 +120,16 @@ public:
 #pragma clang diagnostic pop
 #endif
 // Native definition for P/Invoke marshalling of System.ValueType
-struct ValueType_t2839607602_marshaled_pinvoke
+struct ValueType_t221354359_marshaled_pinvoke
 {
 };
 // Native definition for COM marshalling of System.ValueType
-struct ValueType_t2839607602_marshaled_com
+struct ValueType_t221354359_marshaled_com
 {
 };
-#endif // VALUETYPE_T2839607602_H
-#ifndef BOOLEAN_T1236014920_H
-#define BOOLEAN_T1236014920_H
+#endif // VALUETYPE_T221354359_H
+#ifndef BOOLEAN_T3344806696_H
+#define BOOLEAN_T3344806696_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -137,14 +137,14 @@ struct ValueType_t2839607602_marshaled_com
 #endif
 
 // System.Boolean
-struct  Boolean_t1236014920 
+struct  Boolean_t3344806696 
 {
 public:
 	// System.Boolean System.Boolean::m_value
 	bool ___m_value_0;
 
 public:
-	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(Boolean_t1236014920, ___m_value_0)); }
+	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(Boolean_t3344806696, ___m_value_0)); }
 	inline bool get_m_value_0() const { return ___m_value_0; }
 	inline bool* get_address_of_m_value_0() { return &___m_value_0; }
 	inline void set_m_value_0(bool value)
@@ -153,7 +153,7 @@ public:
 	}
 };
 
-struct Boolean_t1236014920_StaticFields
+struct Boolean_t3344806696_StaticFields
 {
 public:
 	// System.String System.Boolean::TrueString
@@ -162,7 +162,7 @@ public:
 	String_t* ___FalseString_6;
 
 public:
-	inline static int32_t get_offset_of_TrueString_5() { return static_cast<int32_t>(offsetof(Boolean_t1236014920_StaticFields, ___TrueString_5)); }
+	inline static int32_t get_offset_of_TrueString_5() { return static_cast<int32_t>(offsetof(Boolean_t3344806696_StaticFields, ___TrueString_5)); }
 	inline String_t* get_TrueString_5() const { return ___TrueString_5; }
 	inline String_t** get_address_of_TrueString_5() { return &___TrueString_5; }
 	inline void set_TrueString_5(String_t* value)
@@ -171,7 +171,7 @@ public:
 		Il2CppCodeGenWriteBarrier((&___TrueString_5), value);
 	}
 
-	inline static int32_t get_offset_of_FalseString_6() { return static_cast<int32_t>(offsetof(Boolean_t1236014920_StaticFields, ___FalseString_6)); }
+	inline static int32_t get_offset_of_FalseString_6() { return static_cast<int32_t>(offsetof(Boolean_t3344806696_StaticFields, ___FalseString_6)); }
 	inline String_t* get_FalseString_6() const { return ___FalseString_6; }
 	inline String_t** get_address_of_FalseString_6() { return &___FalseString_6; }
 	inline void set_FalseString_6(String_t* value)
@@ -184,9 +184,9 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // BOOLEAN_T1236014920_H
-#ifndef BYTE_T3589932293_H
-#define BYTE_T3589932293_H
+#endif // BOOLEAN_T3344806696_H
+#ifndef BYTE_T885726038_H
+#define BYTE_T885726038_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -194,14 +194,14 @@ public:
 #endif
 
 // System.Byte
-struct  Byte_t3589932293 
+struct  Byte_t885726038 
 {
 public:
 	// System.Byte System.Byte::m_value
 	uint8_t ___m_value_0;
 
 public:
-	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(Byte_t3589932293, ___m_value_0)); }
+	inline static int32_t get_offset_of_m_value_0() { return static_cast<int32_t>(offsetof(Byte_t885726038, ___m_value_0)); }
 	inline uint8_t get_m_value_0() const { return ___m_value_0; }
 	inline uint8_t* get_address_of_m_value_0() { return &___m_value_0; }
 	inline void set_m_value_0(uint8_t value)
@@ -213,7 +213,7 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // BYTE_T3589932293_H
+#endif // BYTE_T885726038_H
 #ifndef INTPTR_T_H
 #define INTPTR_T_H
 #ifdef __clang__
@@ -259,8 +259,8 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // INTPTR_T_H
-#ifndef OBJECT_T4227153169_H
-#define OBJECT_T4227153169_H
+#ifndef OBJECT_T1813038643_H
+#define OBJECT_T1813038643_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -268,14 +268,14 @@ public:
 #endif
 
 // UnityEngine.Object
-struct  Object_t4227153169  : public RuntimeObject
+struct  Object_t1813038643  : public RuntimeObject
 {
 public:
 	// System.IntPtr UnityEngine.Object::m_CachedPtr
 	intptr_t ___m_CachedPtr_0;
 
 public:
-	inline static int32_t get_offset_of_m_CachedPtr_0() { return static_cast<int32_t>(offsetof(Object_t4227153169, ___m_CachedPtr_0)); }
+	inline static int32_t get_offset_of_m_CachedPtr_0() { return static_cast<int32_t>(offsetof(Object_t1813038643, ___m_CachedPtr_0)); }
 	inline intptr_t get_m_CachedPtr_0() const { return ___m_CachedPtr_0; }
 	inline intptr_t* get_address_of_m_CachedPtr_0() { return &___m_CachedPtr_0; }
 	inline void set_m_CachedPtr_0(intptr_t value)
@@ -284,14 +284,14 @@ public:
 	}
 };
 
-struct Object_t4227153169_StaticFields
+struct Object_t1813038643_StaticFields
 {
 public:
 	// System.Int32 UnityEngine.Object::OffsetOfInstanceIDInCPlusPlusObject
 	int32_t ___OffsetOfInstanceIDInCPlusPlusObject_1;
 
 public:
-	inline static int32_t get_offset_of_OffsetOfInstanceIDInCPlusPlusObject_1() { return static_cast<int32_t>(offsetof(Object_t4227153169_StaticFields, ___OffsetOfInstanceIDInCPlusPlusObject_1)); }
+	inline static int32_t get_offset_of_OffsetOfInstanceIDInCPlusPlusObject_1() { return static_cast<int32_t>(offsetof(Object_t1813038643_StaticFields, ___OffsetOfInstanceIDInCPlusPlusObject_1)); }
 	inline int32_t get_OffsetOfInstanceIDInCPlusPlusObject_1() const { return ___OffsetOfInstanceIDInCPlusPlusObject_1; }
 	inline int32_t* get_address_of_OffsetOfInstanceIDInCPlusPlusObject_1() { return &___OffsetOfInstanceIDInCPlusPlusObject_1; }
 	inline void set_OffsetOfInstanceIDInCPlusPlusObject_1(int32_t value)
@@ -304,18 +304,18 @@ public:
 #pragma clang diagnostic pop
 #endif
 // Native definition for P/Invoke marshalling of UnityEngine.Object
-struct Object_t4227153169_marshaled_pinvoke
+struct Object_t1813038643_marshaled_pinvoke
 {
 	intptr_t ___m_CachedPtr_0;
 };
 // Native definition for COM marshalling of UnityEngine.Object
-struct Object_t4227153169_marshaled_com
+struct Object_t1813038643_marshaled_com
 {
 	intptr_t ___m_CachedPtr_0;
 };
-#endif // OBJECT_T4227153169_H
-#ifndef TEXTURE_T3361578323_H
-#define TEXTURE_T3361578323_H
+#endif // OBJECT_T1813038643_H
+#ifndef TEXTURE_T1969564349_H
+#define TEXTURE_T1969564349_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -323,7 +323,7 @@ struct Object_t4227153169_marshaled_com
 #endif
 
 // UnityEngine.Texture
-struct  Texture_t3361578323  : public Object_t4227153169
+struct  Texture_t1969564349  : public Object_t1813038643
 {
 public:
 
@@ -333,9 +333,9 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // TEXTURE_T3361578323_H
-#ifndef TEXTURE2D_T847220017_H
-#define TEXTURE2D_T847220017_H
+#endif // TEXTURE_T1969564349_H
+#ifndef TEXTURE2D_T292688681_H
+#define TEXTURE2D_T292688681_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -343,7 +343,7 @@ public:
 #endif
 
 // UnityEngine.Texture2D
-struct  Texture2D_t847220017  : public Texture_t3361578323
+struct  Texture2D_t292688681  : public Texture_t1969564349
 {
 public:
 
@@ -353,9 +353,9 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // TEXTURE2D_T847220017_H
+#endif // TEXTURE2D_T292688681_H
 // System.Byte[]
-struct ByteU5BU5D_t3069277512  : public RuntimeArray
+struct ByteU5BU5D_t3406352019  : public RuntimeArray
 {
 public:
 	ALIGN_FIELD (8) uint8_t m_Items[1];
@@ -398,12 +398,12 @@ public:
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // System.Boolean UnityEngine.ImageConversion::LoadImage(UnityEngine.Texture2D,System.Byte[],System.Boolean)
-extern "C"  bool ImageConversion_LoadImage_m1795566700 (RuntimeObject * __this /* static, unused */, Texture2D_t847220017 * ___tex0, ByteU5BU5D_t3069277512* ___data1, bool ___markNonReadable2, const RuntimeMethod* method)
+extern "C"  bool ImageConversion_LoadImage_m677007460 (RuntimeObject * __this /* static, unused */, Texture2D_t292688681 * ___tex0, ByteU5BU5D_t3406352019* ___data1, bool ___markNonReadable2, const RuntimeMethod* method)
 {
-	typedef bool (*ImageConversion_LoadImage_m1795566700_ftn) (Texture2D_t847220017 *, ByteU5BU5D_t3069277512*, bool);
-	static ImageConversion_LoadImage_m1795566700_ftn _il2cpp_icall_func;
+	typedef bool (*ImageConversion_LoadImage_m677007460_ftn) (Texture2D_t292688681 *, ByteU5BU5D_t3406352019*, bool);
+	static ImageConversion_LoadImage_m677007460_ftn _il2cpp_icall_func;
 	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (ImageConversion_LoadImage_m1795566700_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ImageConversion::LoadImage(UnityEngine.Texture2D,System.Byte[],System.Boolean)");
+	_il2cpp_icall_func = (ImageConversion_LoadImage_m677007460_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ImageConversion::LoadImage(UnityEngine.Texture2D,System.Byte[],System.Boolean)");
 	bool retVal = _il2cpp_icall_func(___tex0, ___data1, ___markNonReadable2);
 	return retVal;
 }

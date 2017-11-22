@@ -45,6 +45,9 @@
 // this is done to make sure that activity indicator animation starts before blocking loading
 - (void)startUnity:(UIApplication*)application;
 
+- (void)restartUnity:(UIApplication*)application;
+
+
 // this is a part of UIApplicationDelegate protocol starting with ios5
 // setter will be generated empty
 @property (retain, nonatomic) UIWindow* window;
