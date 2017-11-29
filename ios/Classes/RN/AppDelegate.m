@@ -12,7 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTLog.h>
-
+#import "RootViewController.h"
 #import "RNMEvaluator.h"
 @implementation NSURLRequest(DataController)
 + (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
@@ -51,6 +51,7 @@
     bridge = [[RCTBridge alloc] initWithBundleURL:[NSURL URLWithString:@"http://192.168.3.101:8081/index.ios.bundle?platform=ios&dev=true"]
                                               moduleProvider:nil
                                                launchOptions:nil];
+    
 #endif
     
     
@@ -67,14 +68,15 @@
     
     
    
- RCTRootView* rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"RNUnityStarter" initialProperties:nil];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+ //RCTRootView* rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"RNUnityStarter" initialProperties:nil];
+  //rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
-    
+  //UIViewController *rootViewController = [UIViewController new];
+  //rootViewController.view = rootView;
+    RootViewController *controller = [RootViewController new];
+    controller.bridge = bridge;
+    self.window.rootViewController = controller;
     _unityAppController = [[UnityAppController alloc]init];//这里初始化unity
     [_unityAppController application:application didFinishLaunchingWithOptions:launchOptions];
     
@@ -85,7 +87,7 @@
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
         NSLog(@"test callSyncFunction");
         
-        [RNMEvaluator callSyncFunction:bridge
+    [RNMEvaluator callSyncFunction:bridge
                                   name:@"console.log"
                                   args:@[@1,@2]
                                     cb:^(NSString *error, id returnValue) {

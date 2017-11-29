@@ -15,7 +15,8 @@ const App = DrawerNavigator(
 		Home: { screen: Home }
 	},
 	{
-		contentComponent: props => <SideBar {...props} />
+		contentComponent: props => <SideBar {...props} />,
+		drawerWidth: 100
 	}
 );
 export default App;

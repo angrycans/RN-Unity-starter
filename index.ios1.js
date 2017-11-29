@@ -18,7 +18,7 @@ import {
 require('react-native-eval')
 
 
-import UnityView from './src/unityview.js'
+//import UnityView from './src/unityview.js'
 
 
 var NativeBridge = NativeModules.NativeBridge;
@@ -29,7 +29,7 @@ export default class RNUnityStarter extends Component {
   render() {
     return (
       <View style={styles.container} >
-        <UnityView style={{ width: Dimensions.get("window").width, height: Dimensions.get("window").height }} />
+
         <TouchableHighlight style={[styles.box2, { position: 'absolute', top: 0 }]}
           onPress={() => {
             NativeBridge.restartUnity();

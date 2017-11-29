@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, ViewStyle, Dimensions } from 'react-native';
-import FontAwesome from 'react-native-vector-icons-iconfont/FontAwesome';
+import { View, StyleSheet, ViewStyle, Dimensions } from 'react-native';
 import UnityView from '../../unityview.js'
 
 
@@ -17,10 +16,7 @@ export default class Home extends React.Component<any, any> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello, test-ui!</Text>
-        <FontAwesome name="rocket" size={30} color="#900" />
-        <UnityView style={{ width: Dimensions.get("window").width, height: 200 }} />
-
+        <UnityView style={{ width: Dimensions.get("window").width, height: Dimensions.get("window").height }} />
       </View>
     );
   }
@@ -34,5 +30,6 @@ const styles = StyleSheet.create({
 
   push: {
     margin: 10
+    
   }
 });

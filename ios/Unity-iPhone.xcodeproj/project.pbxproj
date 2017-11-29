@@ -217,6 +217,7 @@
 		CE4579CB1FAAEB8B0015A75E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4579C21FAAEB8A0015A75E /* AppDelegate.m */; };
 		CE4579CD1FAAEB8B0015A75E /* RCTUnityView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4579C61FAAEB8A0015A75E /* RCTUnityView.m */; };
 		CE4579CE1FAAEB8B0015A75E /* RCTUnityViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4579C81FAAEB8B0015A75E /* RCTUnityViewManager.m */; };
+		CE4597CB1FCE4EA9002A7728 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4597CA1FCE4EA9002A7728 /* RootViewController.m */; };
 		CEB52C721FC5532300F072E6 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB52C701FC5532300F072E6 /* NativeBridge.m */; };
 		D24A41A994AC108C1B0B8D1C /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10364CEBB8F1FA788442FD12 /* Metal.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D39A4139BC79FCA0E9FB25F0 /* Bulk_UnityEngine.UI_0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8A842B3BC80A2794D09F927 /* Bulk_UnityEngine.UI_0.cpp */; };
@@ -278,9 +279,9 @@
 		033040E399879758C94D53F4 /* libxlua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libxlua.a; path = Libraries/Plugins/iOS/libxlua.a; sourceTree = SOURCE_ROOT; };
 		03F528621B447098000F4FB8 /* Il2CppOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppOptions.cpp; sourceTree = "<group>"; };
 		046746E28783AA5A01272C34 /* Bulk_UnityEngine.TextRenderingModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.TextRenderingModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.TextRenderingModule_0.cpp; sourceTree = SOURCE_ROOT; };
-		04FF6FC03670431F8353A0FE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		04FF6FC03670431F8353A0FE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		096B4EB2987B0053E0496C58 /* Il2CppCompilerCalculateTypeValuesTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValuesTable.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValuesTable.cpp; sourceTree = SOURCE_ROOT; };
-		0F28713F2DD64D60BDAE882A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons-iconfont/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		0F28713F2DD64D60BDAE882A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons-iconfont/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		0FB549ADAE5A8F9AAF013CAE /* Il2CppMetadataRegistration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppMetadataRegistration.cpp; path = Classes/Native/Il2CppMetadataRegistration.cpp; sourceTree = SOURCE_ROOT; };
 		0FEA4B6A913AB52061F220D3 /* Il2CppCompilerCalculateTypeValues_0Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_0Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_0Table.cpp; sourceTree = SOURCE_ROOT; };
 		10364CEBB8F1FA788442FD12 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
@@ -316,22 +317,22 @@
 		2F9D43C9A99257E71671389B /* Il2CppComCallableWrappers0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppComCallableWrappers0.cpp; path = Classes/Native/Il2CppComCallableWrappers0.cpp; sourceTree = SOURCE_ROOT; };
 		30164E40A8A40FC6BEEE58A4 /* UnresolvedVirtualCallStubs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnresolvedVirtualCallStubs.cpp; path = Classes/Native/UnresolvedVirtualCallStubs.cpp; sourceTree = SOURCE_ROOT; };
 		30B1491A965F21E64424D75F /* Bulk_Generics_8.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_8.cpp; path = Classes/Native/Bulk_Generics_8.cpp; sourceTree = SOURCE_ROOT; };
-		3139E200ED0340CDBC4AA0F0 /* react-native-eval.app */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = wrapper.application; name = "react-native-eval.app"; path = "react-native-eval.app"; sourceTree = "<group>"; };
+		3139E200ED0340CDBC4AA0F0 /* react-native-eval.app */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "react-native-eval.app"; sourceTree = "<group>"; };
 		329943A79D0884C28AFDA832 /* Il2CppCompilerCalculateTypeValues_17Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_17Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_17Table.cpp; sourceTree = SOURCE_ROOT; };
 		343D41EBAEFA34ACC80E638B /* UnityICallRegistration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnityICallRegistration.cpp; path = Classes/Native/UnityICallRegistration.cpp; sourceTree = SOURCE_ROOT; };
-		353CD5366B844C709A9DE142 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		353CD5366B844C709A9DE142 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		395C437FA938E5A7DFE362B1 /* Il2CppCompilerCalculateTypeValues_20Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_20Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_20Table.cpp; sourceTree = SOURCE_ROOT; };
 		3B6640D1869DD089F474A91E /* Bulk_UnityEngine.UnityWebRequestWWWModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.UnityWebRequestWWWModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.UnityWebRequestWWWModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		3C6E414095646AC9C21CB4FD /* Bulk_System.Xml_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_System.Xml_2.cpp; path = Classes/Native/Bulk_System.Xml_2.cpp; sourceTree = SOURCE_ROOT; };
-		3D915A614C4E4F73B4D4DB69 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		3D915A614C4E4F73B4D4DB69 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		3F114082821429CD12112C56 /* Bulk_mscorlib_11.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_11.cpp; path = Classes/Native/Bulk_mscorlib_11.cpp; sourceTree = SOURCE_ROOT; };
-		4394F7D834814E54ADAAB15A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		4394F7D834814E54ADAAB15A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		44FD4B0299B0C61DE6B7AE1B /* Bulk_Generics_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_0.cpp; path = Classes/Native/Bulk_Generics_0.cpp; sourceTree = SOURCE_ROOT; };
 		45BC3D173CCA741E5E059239 /* Pods-Unity-iPhone.releaseforprofiling.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.releaseforprofiling.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.releaseforprofiling.xcconfig"; sourceTree = "<group>"; };
 		47BE4F4D95DC9D7F3B72676B /* Il2CppCompilerCalculateTypeValues_4Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_4Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_4Table.cpp; sourceTree = SOURCE_ROOT; };
 		4806461293968F74FED3918F /* LaunchScreen-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "LaunchScreen-iPad.xib"; sourceTree = SOURCE_ROOT; };
 		4C41411D9630FE355157ACD1 /* Il2CppCompilerCalculateTypeValues_32Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_32Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_32Table.cpp; sourceTree = SOURCE_ROOT; };
-		4D06CA7DA7B744E9852DC539 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		4D06CA7DA7B744E9852DC539 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		4D9949EF996267CF05892EC3 /* Bulk_UnityEngine.Physics2DModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.Physics2DModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.Physics2DModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		50BB4348B73559E84C56C820 /* Bulk_UnityEngine.ParticleSystemModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.ParticleSystemModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.ParticleSystemModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		51324798AAAE1FFAB2E772E2 /* Bulk_UnityEngine.AudioModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.AudioModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.AudioModule_0.cpp; sourceTree = SOURCE_ROOT; };
@@ -357,8 +358,8 @@
 		5A59455782EB22E20CC4EAAA /* Bulk_Assembly-CSharp_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Bulk_Assembly-CSharp_2.cpp"; path = "Classes/Native/Bulk_Assembly-CSharp_2.cpp"; sourceTree = SOURCE_ROOT; };
 		5AFE4EBCA8ABD5AF278939D6 /* Bulk_mscorlib_6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_6.cpp; path = Classes/Native/Bulk_mscorlib_6.cpp; sourceTree = SOURCE_ROOT; };
 		5D7548E6970BEECD59771632 /* Il2CppCompilerCalculateTypeValues_36Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_36Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_36Table.cpp; sourceTree = SOURCE_ROOT; };
-		5E5B1B2E12194073996EA78B /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons-iconfont/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		5F85DC2B81C44EE497C3B50D /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		5E5B1B2E12194073996EA78B /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons-iconfont/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		5F85DC2B81C44EE497C3B50D /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		5FC34C99B99875F8F00DFA83 /* Il2CppCompilerCalculateTypeValues_28Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_28Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_28Table.cpp; sourceTree = SOURCE_ROOT; };
 		622978721289D3DB0477621E /* Pods-Unity-iPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.debug.xcconfig"; sourceTree = "<group>"; };
 		65924502B9F7DA75D7AA368B /* Il2CppCompilerCalculateTypeValues_8Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_8Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_8Table.cpp; sourceTree = SOURCE_ROOT; };
@@ -366,7 +367,7 @@
 		6774431584287241AD6A7B0F /* Il2CppCompilerCalculateTypeValues_31Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_31Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_31Table.cpp; sourceTree = SOURCE_ROOT; };
 		68714AEDA84448BB18E5D138 /* Bulk_Generics_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_2.cpp; path = Classes/Native/Bulk_Generics_2.cpp; sourceTree = SOURCE_ROOT; };
 		6970B92B3586E81B3077A3F7 /* Pods-Unity-iPhone Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone Tests/Pods-Unity-iPhone Tests.release.xcconfig"; sourceTree = "<group>"; };
-		69E9DFE9895B4D1B8E3409C6 /* IconFont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = IconFont.ttf; path = "../node_modules/react-native-vector-icons-iconfont/Fonts/IconFont.ttf"; sourceTree = "<group>"; };
+		69E9DFE9895B4D1B8E3409C6 /* IconFont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = IconFont.ttf; path = "../node_modules/react-native-vector-icons-iconfont/Fonts/IconFont.ttf"; sourceTree = "<group>"; };
 		6C26425A94BB5DBF236CCC25 /* Il2CppCompilerCalculateTypeValues_30Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_30Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_30Table.cpp; sourceTree = SOURCE_ROOT; };
 		6E134CF9915EE195AF301467 /* Bulk_Generics_15.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_15.cpp; path = Classes/Native/Bulk_Generics_15.cpp; sourceTree = SOURCE_ROOT; };
 		6EAC45C9B1BB56ED59FC4DD3 /* Bulk_System_3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_System_3.cpp; path = Classes/Native/Bulk_System_3.cpp; sourceTree = SOURCE_ROOT; };
@@ -392,7 +393,7 @@
 		83B2570A0E62FF8A00468741 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		83B2574B0E63022200468741 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		83B2574E0E63025400468741 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
-		845B8754294547D39109428D /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		845B8754294547D39109428D /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		848031E01C5160D700FCEAB7 /* UnityReplayKit_Scripting.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnityReplayKit_Scripting.mm; sourceTree = "<group>"; };
 		84DC28F51C5137FE00BC67D7 /* UnityReplayKit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnityReplayKit.mm; sourceTree = "<group>"; };
 		84DC28F71C51383500BC67D7 /* UnityReplayKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityReplayKit.h; sourceTree = "<group>"; };
@@ -462,13 +463,13 @@
 		8ADCE38919C87177006F04F6 /* CameraCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraCapture.h; sourceTree = "<group>"; };
 		8ADCE38A19C87177006F04F6 /* CameraCapture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraCapture.mm; sourceTree = "<group>"; };
 		8AECDC781950835600CB29E8 /* UnityMetalSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityMetalSupport.h; sourceTree = "<group>"; };
-		8AEFD432C127429DB6D2B7AD /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		8AEFD432C127429DB6D2B7AD /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		8AF7755E17997D1300341121 /* AppDelegateListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegateListener.h; sourceTree = "<group>"; };
 		8AF7755F17997D1300341121 /* AppDelegateListener.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegateListener.mm; sourceTree = "<group>"; };
 		8C8C49E0A4875ECD23A52009 /* Bulk_System_5.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_System_5.cpp; path = Classes/Native/Bulk_System_5.cpp; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E354BA5A5A9FE62728E18F7 /* Bulk_mscorlib_13.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_13.cpp; path = Classes/Native/Bulk_mscorlib_13.cpp; sourceTree = SOURCE_ROOT; };
-		8F9F1E9A03D94A978C0424B8 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		8F9F1E9A03D94A978C0424B8 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		8FA740DFAF047DDEE8B5B0FB /* Il2CppCompilerCalculateTypeValues_24Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_24Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_24Table.cpp; sourceTree = SOURCE_ROOT; };
 		9130424A9A89DBFCF0B2F20D /* Bulk_Generics_20.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_20.cpp; path = Classes/Native/Bulk_Generics_20.cpp; sourceTree = SOURCE_ROOT; };
 		91C8AC48373C4ACDE9927592 /* Pods-Unity-iPhone.releaseforrunning.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.releaseforrunning.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.releaseforrunning.xcconfig"; sourceTree = "<group>"; };
@@ -476,7 +477,7 @@
 		941B417FBC0A8DC134E453DC /* Bulk_mscorlib_1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_1.cpp; path = Classes/Native/Bulk_mscorlib_1.cpp; sourceTree = SOURCE_ROOT; };
 		949D49A6877B558C8830E084 /* Il2CppCompilerCalculateTypeValues_26Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_26Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_26Table.cpp; sourceTree = SOURCE_ROOT; };
 		94C74566B8DF9E92D8DFBAD8 /* Il2CppCompilerCalculateTypeValues_3Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_3Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_3Table.cpp; sourceTree = SOURCE_ROOT; };
-		959FE04CDE154830A72B194F /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libRNVectorIcons.a; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		959FE04CDE154830A72B194F /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		95F147D39DB20966B16B7CAF /* GenericMethods1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GenericMethods1.cpp; path = Classes/Native/GenericMethods1.cpp; sourceTree = SOURCE_ROOT; };
 		960391211D6CE46E003BF157 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		9994751F1A7BC3AE00178130 /* UnityAdsUnityWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UnityAdsUnityWrapper.mm; path = UnityAds/UnityAdsUnityWrapper.mm; sourceTree = "<group>"; };
@@ -491,7 +492,7 @@
 		A3B64E5283BCD33DA33F492D /* Il2CppCompilerCalculateTypeValues_15Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_15Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_15Table.cpp; sourceTree = SOURCE_ROOT; };
 		A410479996535F33461E6708 /* Il2CppCompilerCalculateTypeValues_35Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_35Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_35Table.cpp; sourceTree = SOURCE_ROOT; };
 		A6F8491287E29DE4779C0287 /* Bulk_UnityEngine.CoreModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.CoreModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.CoreModule_0.cpp; sourceTree = SOURCE_ROOT; };
-		A708F0D1D6F04C22948D1B35 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		A708F0D1D6F04C22948D1B35 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		A78647DD9D1CC01FE29FAB12 /* Il2CppCompilerCalculateTypeValues_16Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_16Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_16Table.cpp; sourceTree = SOURCE_ROOT; };
 		A88748618938D37E5F3348AC /* Bulk_UnityEngine.ImageConversionModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.ImageConversionModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.ImageConversionModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		A9004DFDBF6845945B5EC8E6 /* Il2CppGenericMethodTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppGenericMethodTable.cpp; path = Classes/Native/Il2CppGenericMethodTable.cpp; sourceTree = SOURCE_ROOT; };
@@ -532,6 +533,8 @@
 		CE4579C61FAAEB8A0015A75E /* RCTUnityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTUnityView.m; sourceTree = "<group>"; };
 		CE4579C71FAAEB8B0015A75E /* RCTUnityViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTUnityViewManager.h; sourceTree = "<group>"; };
 		CE4579C81FAAEB8B0015A75E /* RCTUnityViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTUnityViewManager.m; sourceTree = "<group>"; };
+		CE4597C91FCE4EA9002A7728 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		CE4597CA1FCE4EA9002A7728 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		CEB52C701FC5532300F072E6 /* NativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeBridge.m; sourceTree = "<group>"; };
 		CEB52C711FC5532300F072E6 /* NativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeBridge.h; sourceTree = "<group>"; };
 		D04B441EAACD4C75C3808878 /* Bulk_mscorlib_14.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_14.cpp; path = Classes/Native/Bulk_mscorlib_14.cpp; sourceTree = SOURCE_ROOT; };
@@ -557,7 +560,7 @@
 		E15344018F25A2B5C304EBEB /* Bulk_UnityEngine_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine_0.cpp; path = Classes/Native/Bulk_UnityEngine_0.cpp; sourceTree = SOURCE_ROOT; };
 		E18145AC90518D6D9B04BF2B /* GenericMethods2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GenericMethods2.cpp; path = Classes/Native/GenericMethods2.cpp; sourceTree = SOURCE_ROOT; };
 		E18C475DA1CC3FBB951D9CA0 /* Il2CppCompilerCalculateTypeValues_21Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_21Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_21Table.cpp; sourceTree = SOURCE_ROOT; };
-		E190857B47994F07B75E834D /* react-native-eval.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = "react-native-eval.xcodeproj"; path = "../node_modules/react-native-eval/react-native-eval.xcodeproj"; sourceTree = "<group>"; };
+		E190857B47994F07B75E834D /* react-native-eval.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = "react-native-eval.xcodeproj"; path = "../node_modules/react-native-eval/react-native-eval.xcodeproj"; sourceTree = "<group>"; };
 		E2984DA18DEFF9E29E1E5805 /* Il2CppInvokerTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppInvokerTable.cpp; path = Classes/Native/Il2CppInvokerTable.cpp; sourceTree = SOURCE_ROOT; };
 		E3B448A8AB884C27FD4015C2 /* Il2CppCodeRegistration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCodeRegistration.cpp; path = Classes/Native/Il2CppCodeRegistration.cpp; sourceTree = SOURCE_ROOT; };
 		E869DB6B32C6463C8AB426E4 /* libPods-Unity-iPhone Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Unity-iPhone Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -565,8 +568,8 @@
 		EBF8C8AE0FF46FF1FD0DABA0 /* Pods-Unity-iPhone Tests.releaseforprofiling.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone Tests.releaseforprofiling.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone Tests/Pods-Unity-iPhone Tests.releaseforprofiling.xcconfig"; sourceTree = "<group>"; };
 		EC0A441BB5864BE16A5DB395 /* Bulk_UnityEngine.AnimationModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.AnimationModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.AnimationModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		EE0A4248B9AE096E84BEB3D0 /* Bulk_Generics_18.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Generics_18.cpp; path = Classes/Native/Bulk_Generics_18.cpp; sourceTree = SOURCE_ROOT; };
-		EF5FB9527A7844F784EF3D7B /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		EF6CDF53725C4DD4B7C3DF44 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		EF5FB9527A7844F784EF3D7B /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		EF6CDF53725C4DD4B7C3DF44 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		F18642BC92063B07DC1056D3 /* Bulk_UnityEngine.TerrainModule_0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_UnityEngine.TerrainModule_0.cpp; path = Classes/Native/Bulk_UnityEngine.TerrainModule_0.cpp; sourceTree = SOURCE_ROOT; };
 		F1AE486D85A2D5B2969F6050 /* Il2CppCompilerCalculateTypeValues_33Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_33Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_33Table.cpp; sourceTree = SOURCE_ROOT; };
 		F21E498595AB2ECF37D22961 /* Il2CppCompilerCalculateTypeValues_37Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_37Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_37Table.cpp; sourceTree = SOURCE_ROOT; };
@@ -653,7 +656,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				AA31BF961B55660D0013FB1B /* Data */,
@@ -749,7 +752,6 @@
 				69E9DFE9895B4D1B8E3409C6 /* IconFont.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		8A3EDDC51615B7C1001839E9 /* UI */ = {
@@ -1011,6 +1013,8 @@
 				CE4579C71FAAEB8B0015A75E /* RCTUnityViewManager.h */,
 				CE4579C81FAAEB8B0015A75E /* RCTUnityViewManager.m */,
 				CE4499851FAB16D2000D2B93 /* Rnconsole.mm */,
+				CE4597C91FCE4EA9002A7728 /* RootViewController.h */,
+				CE4597CA1FCE4EA9002A7728 /* RootViewController.m */,
 			);
 			path = RN;
 			sourceTree = "<group>";
@@ -1148,7 +1152,7 @@
 				German,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1354,6 +1358,7 @@
 				8A4815C117A28E7F003FBFD5 /* UnityAppController+ViewHandling.mm in Sources */,
 				8A25E6D218D767E20006A227 /* Filesystem.mm in Sources */,
 				999475201A7BC3AE00178130 /* UnityAdsUnityWrapper.mm in Sources */,
+				CE4597CB1FCE4EA9002A7728 /* RootViewController.m in Sources */,
 				8AF7755D1799329100341121 /* LifeCycleListener.mm in Sources */,
 				8A5C1492174E662D0006EB36 /* RenderPluginDelegate.mm in Sources */,
 				8AF7756017997D2700341121 /* AppDelegateListener.mm in Sources */,
