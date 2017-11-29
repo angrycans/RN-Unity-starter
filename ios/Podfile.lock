@@ -22,6 +22,8 @@ PODS:
   - React/RCTImage (0.49.5):
     - React/Core
     - React/RCTNetwork
+  - React/RCTLinkingIOS (0.49.5):
+    - React/Core
   - React/RCTNetwork (0.49.5):
     - React/Core
   - React/RCTText (0.49.5):
@@ -30,6 +32,8 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNVectorIcons (1.0.6):
+    - React
   - yoga (0.49.5.React)
 
 DEPENDENCIES:
@@ -39,9 +43,11 @@ DEPENDENCIES:
   - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTAnimation (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons-iconfont`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
@@ -49,14 +55,17 @@ EXTERNAL SOURCES:
     :path: ../node_modules/react-native
   react-native-eval:
     :path: ../node_modules/react-native-eval
+  RNVectorIcons:
+    :path: ../node_modules/react-native-vector-icons-iconfont
   yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   React: 9d5a23842dcc75ffef540ee2d2ef0eee1904ee58
   react-native-eval: 5c3f37df91a57bd982c2f483466b60694ba20b19
+  RNVectorIcons: bd826aa5ba4e3daa5060f521f1732c1bef5f7f41
   yoga: 596e987aa8aac0165abb235d2977982f090476a0
 
-PODFILE CHECKSUM: 9f70d4adbe53589b80acb95b3d77ea7ae562dc45
+PODFILE CHECKSUM: 674746ac2741eac0ea56ed8344853f840d896900
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

@@ -15,6 +15,7 @@ target 'Unity-iPhone' do
     'RCTImage',
     'RCTAnimation',
     'RCTWebSocket', # needed for debugging
+    'RCTLinkingIOS',
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
@@ -22,6 +23,7 @@ target 'Unity-iPhone' do
   
   #native call js
   pod 'react-native-eval',:path => '../node_modules/react-native-eval'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons-iconfont'
   
   target 'Unity-iPhone Tests' do
     inherit! :search_paths
